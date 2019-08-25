@@ -11,6 +11,8 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.jess.arms.di.component.AppComponent;
+import com.jess.arms.utils.ArmsUtils;
 import com.thb.automatic.IOTBaseActivity;
 import com.thb.automatic.R;
 import com.thb.automatic.app.ui.TabFragmentHost;
@@ -20,11 +22,9 @@ import com.thb.automatic.home.activity.presenter.HomePresenter;
 import com.thb.automatic.home.fragment.list.view.ListFragment;
 import com.thb.automatic.home.fragment.map.view.MapFragment;
 import com.thb.automatic.home.fragment.mine.view.MineFragment;
-import com.jess.arms.di.component.AppComponent;
-import com.jess.arms.utils.ArmsUtils;
 
-import static com.thb.automatic.service.arouter.ARouterPath.HOME_ACTIVITY;
 import static com.jess.arms.utils.Preconditions.checkNotNull;
+import static com.thb.automatic.service.arouter.ARouterPath.HOME_ACTIVITY;
 
 
 /**
@@ -91,6 +91,7 @@ public class HomeActivity extends IOTBaseActivity<HomePresenter> implements Home
         tabHost.getTabWidget().setDividerDrawable(null);
         tabHost.setOnTabChangedListener(this);
         initTab();
+        mPresenter.getPermission(this);
     }
 
     private void initTab() {

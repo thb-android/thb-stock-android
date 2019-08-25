@@ -53,6 +53,7 @@ public class LoadStockActivity extends IOTBaseActivity<LoadStockPresenter> imple
     public void initData(@Nullable Bundle savedInstanceState) {
         setTitle(Utils.getString(R.string.set_about_us));
         versionView.setText("当前版本V" + Utils.getAppVersion(this));
+        mPresenter.loadStock();
     }
 
     @Override
@@ -60,4 +61,8 @@ public class LoadStockActivity extends IOTBaseActivity<LoadStockPresenter> imple
         finish();
     }
 
+    @Override
+    public void updateView(String content) {
+        versionView.setText(content);
+    }
 }

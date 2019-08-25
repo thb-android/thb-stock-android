@@ -16,16 +16,18 @@
 package com.thb.automatic.home.fragment.mine.model;
 
 import android.app.Application;
-import com.thb.automatic.R;
-import com.thb.automatic.home.fragment.mine.contract.MineContract;
-import com.thb.automatic.home.fragment.mine.entity.MineEntity;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
 import com.jess.arms.utils.ArmsUtils;
+import com.thb.automatic.R;
+import com.thb.automatic.home.fragment.mine.contract.MineContract;
+import com.thb.automatic.home.fragment.mine.entity.MineEntity;
+import com.thb.automatic.service.arouter.ARouterPath;
 import io.reactivex.Observable;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 
 @FragmentScope
 public class MineModel extends BaseModel implements MineContract.Model {
@@ -41,11 +43,12 @@ public class MineModel extends BaseModel implements MineContract.Model {
     @Override
     public Observable<MineEntity> getTempData() {
         MineEntity entity = new MineEntity();
+        entity.items = new ArrayList<>();
 
         MineEntity.MineItem item3 = new MineEntity.MineItem();
         item3.imgId = R.drawable.ic_fence_admin;
         item3.text = ArmsUtils.getString(mApp, R.string.mine_init);
-//        item3.aRouterPath = ARouterPath.FENCE_MANAGER_ACTIVITY;
+        item3.aRouterPath = ARouterPath.LOAD_STOCK_ACTIVITY;
         entity.items.add(item3);
 
         return Observable.just(entity);

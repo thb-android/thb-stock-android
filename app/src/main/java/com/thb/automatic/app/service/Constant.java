@@ -9,7 +9,8 @@ package com.thb.automatic.app.service;
  * <p>版本号：v1.0.0<p>
  */
 public interface Constant {
-    int ERROR_OK = 0;
     int ERROR_TOKEN = 1006;
+    String shenzhen_file = "shenzhen.txt";
+    String shanghai_file = "shanghai.txt";
     String JUHE_KEY = "061b3fbb589edef2187ea9d5eae2e1b8";
 }

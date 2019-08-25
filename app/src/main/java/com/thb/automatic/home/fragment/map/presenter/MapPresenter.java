@@ -5,7 +5,7 @@ import android.util.Log;
 import com.thb.automatic.app.IOTErrorHandleSubscriber;
 import com.thb.automatic.app.utils.Utils;
 import com.thb.automatic.home.fragment.map.contract.MapContract;
-import com.thb.automatic.home.fragment.map.entity.SinaStockInfo;
+import com.thb.automatic.home.fragment.map.entity.StockInfo;
 import com.thb.automatic.service.CommonService;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.mvp.BasePresenter;
@@ -49,7 +49,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
                 .subscribe(new IOTErrorHandleSubscriber<ResponseBody>(mErrorHandler) {
                     @Override
                     public void onResponse(ResponseBody response) {
-                        List<SinaStockInfo> infos = Utils.pares2Stock(response.byteStream());
+                        List<StockInfo> infos = Utils.pares2Stock(response.byteStream());
                         Log.e("tanghuaibao", infos.get(0).toString());
                     }
                 });

@@ -2,11 +2,12 @@ package com.thb.automatic.app.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Environment;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import com.thb.automatic.app.Common;
-import com.thb.automatic.home.fragment.map.entity.SinaStockInfo;
 import com.jess.arms.utils.ArmsUtils;
+import com.thb.automatic.app.Common;
+import com.thb.automatic.home.fragment.map.entity.StockInfo;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -53,11 +54,11 @@ public final class Utils {
         return version;
     }
 
-    public static List<SinaStockInfo> pares2Stock(InputStream is) {
+    public static List<StockInfo> pares2Stock(InputStream is) {
         InputStreamReader reader = new InputStreamReader(new BufferedInputStream(is), Charset.forName("gbk"));
         BufferedReader bReader = new BufferedReader(reader);
 
-        List<SinaStockInfo> list = parseSinaStockInfosFromReader(bReader);
+        List<StockInfo> list = parseSinaStockInfosFromReader(bReader);
         try {
             bReader.close();
         } catch (IOException e) {
@@ -71,13 +72,13 @@ public final class Utils {
         return list;
     }
 
-    private static List<SinaStockInfo> parseSinaStockInfosFromReader(BufferedReader reader) {
-        ArrayList<SinaStockInfo> list = new ArrayList<SinaStockInfo>(10);
+    private static List<StockInfo> parseSinaStockInfosFromReader(BufferedReader reader) {
+        ArrayList<StockInfo> list = new ArrayList<StockInfo>(10);
         String sourceLine = null;
 
         try {
             while ((sourceLine = reader.readLine()) != null) {
-                list.add(SinaStockInfo.parseStockInfo(sourceLine));
+                list.add(StockInfo.parseStockInfo(sourceLine));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,4 +86,7 @@ public final class Utils {
         return list;
     }
 
+    public static String getDirectory() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "a_thb";
+    }
 }
