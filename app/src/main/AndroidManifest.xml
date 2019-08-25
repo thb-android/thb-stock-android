@@ -58,6 +58,11 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name="com.thb.automatic.modue.kline.view.KLineActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="com.thb.automatic.app.GlobalConfiguration"
             android:value="ConfigModule" />

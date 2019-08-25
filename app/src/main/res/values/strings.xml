@@ -11,5 +11,6 @@
     <string name="set_about_us">关于我们</string>
 
     <string name="mine_init">点击初始化，获取所有股票代码</string>
+    <string name="k_line_title">日K线图</string>
 
 </resources>

@@ -10,7 +10,11 @@ package com.thb.automatic.app.service;
  */
 public interface Constant {
     int ERROR_TOKEN = 1006;
+
     String shenzhen_file = "shenzhen.txt";
     String shanghai_file = "shanghai.txt";
+
+    String key_stock_symbol = "key_stock_symbol";
+
     String JUHE_KEY = "061b3fbb589edef2187ea9d5eae2e1b8";
 }
