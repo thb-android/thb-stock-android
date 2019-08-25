@@ -64,7 +64,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
                         final List<StockInfo> infos = Utils.pares2Stock(response.byteStream());
                         final List<StockInfo> temp = new ArrayList<>();
                         for (StockInfo info : infos) {
-                            if (info.open > info.trade && info.trade > info.settlement) {
+                            if (info.open > info.trade && info.low > info.settlement) {
                                 if (!info.name.contains("ST")) {
                                     temp.add(info);
                                 }
