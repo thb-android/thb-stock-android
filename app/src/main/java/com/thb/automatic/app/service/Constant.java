@@ -11,10 +11,5 @@ package com.thb.automatic.app.service;
 public interface Constant {
     int ERROR_OK = 0;
     int ERROR_TOKEN = 1006;
-
-    boolean USE_MOCK = false;
-    String DEVICE_ID = "deviceID";
-    String DEVICE_IDS = "deviceIDS";
-    String FENCE_ID = "fenceID";
-    String DEVICE_INFO = "deviceInfo";
+    String JUHE_KEY = "061b3fbb589edef2187ea9d5eae2e1b8";
 }

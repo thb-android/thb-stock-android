@@ -1,4 +1,4 @@
-package com.thb.automatic.modue.aboutus.view;
+package com.thb.automatic.modue.loadstock.view;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,9 +10,9 @@ import com.jess.arms.di.component.AppComponent;
 import com.thb.automatic.IOTBaseActivity;
 import com.thb.automatic.R;
 import com.thb.automatic.app.utils.Utils;
-import com.thb.automatic.modue.aboutus.DaggerLoadStockComponent;
-import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
-import com.thb.automatic.modue.aboutus.presenter.LoadStockPresenter;
+import com.thb.automatic.modue.loadstock.DaggerLoadStockComponent;
+import com.thb.automatic.modue.loadstock.contract.LoadStockContract;
+import com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter;
 import com.thb.automatic.service.arouter.ARouterPath;
 
 
@@ -31,7 +31,7 @@ import com.thb.automatic.service.arouter.ARouterPath;
 @Route(path = ARouterPath.LOAD_STOCK_ACTIVITY)
 public class LoadStockActivity extends IOTBaseActivity<LoadStockPresenter> implements LoadStockContract.View {
 
-    @BindView(R.id.about_text)
+    @BindView(R.id.load_net_text)
     TextView versionView;
 
     @Override

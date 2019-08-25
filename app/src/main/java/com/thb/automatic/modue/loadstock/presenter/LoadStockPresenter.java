@@ -1,8 +1,8 @@
-package com.thb.automatic.modue.aboutus.presenter;
+package com.thb.automatic.modue.loadstock.presenter;
 
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BasePresenter;
-import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
+import com.thb.automatic.modue.loadstock.contract.LoadStockContract;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 
 import javax.inject.Inject;

@@ -1,7 +1,7 @@
-package com.thb.automatic.modue.aboutus;
+package com.thb.automatic.modue.loadstock;
 
-import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
-import com.thb.automatic.modue.aboutus.model.LoadStockModel;
+import com.thb.automatic.modue.loadstock.contract.LoadStockContract;
+import com.thb.automatic.modue.loadstock.model.LoadStockModel;
 import dagger.Binds;
 import dagger.Module;
 

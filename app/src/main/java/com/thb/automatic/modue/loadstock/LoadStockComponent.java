@@ -1,7 +1,7 @@
-package com.thb.automatic.modue.aboutus;
+package com.thb.automatic.modue.loadstock;
 
-import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
-import com.thb.automatic.modue.aboutus.view.LoadStockActivity;
+import com.thb.automatic.modue.loadstock.contract.LoadStockContract;
+import com.thb.automatic.modue.loadstock.view.LoadStockActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.di.scope.ActivityScope;
 import dagger.BindsInstance;

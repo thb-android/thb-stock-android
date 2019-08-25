@@ -1,4 +1,4 @@
-package com.thb.automatic.modue.aboutus.contract;
+package com.thb.automatic.modue.loadstock.contract;
 
 import com.jess.arms.mvp.IModel;
 import com.jess.arms.mvp.IView;

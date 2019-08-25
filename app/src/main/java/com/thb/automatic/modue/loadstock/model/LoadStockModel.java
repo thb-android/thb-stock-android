@@ -1,10 +1,10 @@
-package com.thb.automatic.modue.aboutus.model;
+package com.thb.automatic.modue.loadstock.model;
 
 import android.app.Application;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
-import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
+import com.thb.automatic.modue.loadstock.contract.LoadStockContract;
 
 import javax.inject.Inject;
 
