@@ -54,7 +54,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.thb.automatic.modue.aboutus.view.AboutUsActivity"
+            android:name="com.thb.automatic.modue.aboutus.view.LoadStockActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 

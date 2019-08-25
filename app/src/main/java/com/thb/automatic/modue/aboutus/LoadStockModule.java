@@ -1,7 +1,7 @@
 package com.thb.automatic.modue.aboutus;
 
-import com.thb.automatic.modue.aboutus.contract.AboutUsContract;
-import com.thb.automatic.modue.aboutus.model.AboutUsModel;
+import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
+import com.thb.automatic.modue.aboutus.model.LoadStockModel;
 import dagger.Binds;
 import dagger.Module;
 
@@ -19,8 +19,8 @@ import dagger.Module;
  * ================================================
  */
 @Module
-public abstract class AboutUsModule {
+public abstract class LoadStockModule {
 
     @Binds
-    abstract AboutUsContract.Model bindAboutUsModel(AboutUsModel model);
+    abstract LoadStockContract.Model bindLoadStockModel(LoadStockModel model);
 }

@@ -11966,6 +11966,8 @@ com.thb.automatic.home.fragment.map.presenter.MapPresenter$1 -> c.i.a.b.b.b.c.c:
     4:4:java.util.List com.thb.automatic.app.utils.Utils.pares2Stock(java.io.InputStream):0:0 -> a
     4:4:void onResponse(okhttp3.ResponseBody):0 -> a
     4:4:void onResponse(java.lang.Object):0 -> a
+    5:5:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    5:5:void onResponse(java.lang.Object):0 -> a
 com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory -> c.i.a.b.b.b.c.d:
     javax.inject.Provider mApplicationProvider -> d
     javax.inject.Provider tempDataProvider -> c

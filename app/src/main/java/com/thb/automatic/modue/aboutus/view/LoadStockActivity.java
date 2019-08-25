@@ -6,15 +6,14 @@ import android.support.annotation.Nullable;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.jess.arms.di.component.AppComponent;
 import com.thb.automatic.IOTBaseActivity;
 import com.thb.automatic.R;
 import com.thb.automatic.app.utils.Utils;
-import com.thb.automatic.modue.aboutus.DaggerAboutUsComponent;
-import com.thb.automatic.modue.aboutus.contract.AboutUsContract;
-import com.thb.automatic.modue.aboutus.entity.AboutUsEntity;
-import com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter;
+import com.thb.automatic.modue.aboutus.DaggerLoadStockComponent;
+import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
+import com.thb.automatic.modue.aboutus.presenter.LoadStockPresenter;
 import com.thb.automatic.service.arouter.ARouterPath;
-import com.jess.arms.di.component.AppComponent;
 
 
 /**
@@ -30,13 +29,14 @@ import com.jess.arms.di.component.AppComponent;
  * ================================================
  */
 @Route(path = ARouterPath.LOAD_STOCK_ACTIVITY)
-public class AboutUsActivity extends IOTBaseActivity<AboutUsPresenter> implements AboutUsContract.View {
+public class LoadStockActivity extends IOTBaseActivity<LoadStockPresenter> implements LoadStockContract.View {
 
     @BindView(R.id.about_text)
     TextView versionView;
+
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
-        DaggerAboutUsComponent //如找不到该类,请编译一下项目
+        DaggerLoadStockComponent //如找不到该类,请编译一下项目
                 .builder()
                 .appComponent(appComponent)
                 .view(this)
@@ -46,17 +46,13 @@ public class AboutUsActivity extends IOTBaseActivity<AboutUsPresenter> implement
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.activity_about_us; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.activity_load_stock; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         setTitle(Utils.getString(R.string.set_about_us));
         versionView.setText("当前版本V" + Utils.getAppVersion(this));
-    }
-
-    @Override
-    public void updateView(AboutUsEntity entity) {
     }
 
     @Override

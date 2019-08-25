@@ -1,12 +1,10 @@
 package com.thb.automatic.modue.aboutus.model;
 
 import android.app.Application;
-import com.thb.automatic.modue.aboutus.contract.AboutUsContract;
-import com.thb.automatic.modue.aboutus.entity.AboutUsEntity;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
-import io.reactivex.Observable;
+import com.thb.automatic.modue.aboutus.contract.LoadStockContract;
 
 import javax.inject.Inject;
 
@@ -24,20 +22,13 @@ import javax.inject.Inject;
  * ================================================
  */
 @ActivityScope
-public class AboutUsModel extends BaseModel implements AboutUsContract.Model {
+public class LoadStockModel extends BaseModel implements LoadStockContract.Model {
     @Inject
     Application mApp;
 
     @Inject
-    public AboutUsModel(IRepositoryManager repositoryManager) {
+    public LoadStockModel(IRepositoryManager repositoryManager) {
         super(repositoryManager);
-    }
-
-    @Override
-    public Observable<AboutUsEntity> getAboutUsData() {
-
-
-        return Observable.just(null);
     }
 
     @Override
