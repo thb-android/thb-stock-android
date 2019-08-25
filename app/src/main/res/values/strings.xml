@@ -13,4 +13,6 @@
     <string name="mine_init">点击初始化，获取所有股票代码</string>
     <string name="k_line_title">日K线图</string>
 
+    <string name="map_help_txt">请先不要动，正在后台解析</string>
+
 </resources>

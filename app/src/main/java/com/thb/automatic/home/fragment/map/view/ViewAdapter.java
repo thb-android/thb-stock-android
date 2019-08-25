@@ -36,7 +36,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
     @Override
     public void onBindViewHolder(@NonNull CustomHolder holder, int i) {
         final StockInfo item = mData.get(i);
-        holder.text.setText(String.format("%s   %s", item.mName, item.symbol));
+        holder.text.setText(String.format("%s   %s", item.name, item.symbol));
         holder.itemView.setOnClickListener(v -> {
             ARouter.getInstance().build(K_LINE_ACTIVITY).withString(key_stock_symbol, item.symbol).navigation();
         });

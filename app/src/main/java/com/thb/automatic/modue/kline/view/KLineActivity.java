@@ -8,6 +8,7 @@ import butterknife.BindView;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.jess.arms.di.component.AppComponent;
 import com.thb.automatic.IOTBaseActivity;
 import com.thb.automatic.R;
@@ -53,13 +54,16 @@ public class KLineActivity extends IOTBaseActivity<KLinePresenter> implements KL
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
-        return R.layout.activity_load_stock; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
+        return R.layout.activity_k_line; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
     }
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
         setTitle(Utils.getString(R.string.k_line_title));
+        Glide.with(this)
+                .load("http://image.sinajs.cn/newchart/daily/n/" + mStockSymbol + ".gif")
+                .into(mKLineImage);
     }
 
     @Override

@@ -50,7 +50,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
                     @Override
                     public void onResponse(ResponseBody response) {
                         List<StockInfo> infos = Utils.pares2Stock(response.byteStream());
-                        Log.e("tanghuaibao", infos.get(0).toString());
+                        mRootView.updateView(infos);
                     }
                 });
     }

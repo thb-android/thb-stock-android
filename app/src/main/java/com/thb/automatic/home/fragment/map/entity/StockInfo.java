@@ -26,8 +26,6 @@ package com.thb.automatic.home.fragment.map.entity;
 public class StockInfo {
     /*代码*/
     public String symbol;
-    //股票名字
-    public String mName;
     /*名称*/
     public String name;
     /*最新价*/

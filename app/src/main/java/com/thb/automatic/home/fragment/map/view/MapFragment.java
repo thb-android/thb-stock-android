@@ -3,19 +3,37 @@ package com.thb.automatic.home.fragment.map.view;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.thb.automatic.R;
-import com.thb.automatic.home.fragment.map.DaggerMapComponent;
-import com.thb.automatic.home.fragment.map.contract.MapContract;
-import com.thb.automatic.home.fragment.map.presenter.MapPresenter;
+import android.widget.TextView;
+import butterknife.BindView;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
+import com.jess.arms.utils.ArmsUtils;
+import com.thb.automatic.R;
+import com.thb.automatic.app.ui.MarginItemDecoration;
+import com.thb.automatic.home.fragment.map.DaggerMapComponent;
+import com.thb.automatic.home.fragment.map.contract.MapContract;
+import com.thb.automatic.home.fragment.map.entity.StockInfo;
+import com.thb.automatic.home.fragment.map.presenter.MapPresenter;
 
-public class MapFragment extends BaseFragment<MapPresenter> implements MapContract.View, View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MapFragment extends BaseFragment<MapPresenter> implements MapContract.View {
 
     private View mContentView;
+
+    @BindView(R.id.map_help)
+    TextView mHelp;
+    @BindView(R.id.map_recycler)
+    RecyclerView mRecyclerView;
+    ViewAdapter mAdapter;
+
+    private final List<StockInfo> mData = new ArrayList<>();
 
     @Override
     public void setupFragmentComponent(@NonNull AppComponent appComponent) {
@@ -38,18 +56,17 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
             parent.removeView(mContentView);
         }
 
-        mContentView.findViewById(R.id.btn_click).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.testSina();
-            }
-        });
         return mContentView;
     }
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-
+        mAdapter = new ViewAdapter(mContext, mData);
+        final int color = ArmsUtils.getColor(mContext, R.color.light_gray);
+        mRecyclerView.addItemDecoration(new MarginItemDecoration(mContext, color));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mRecyclerView.setAdapter(mAdapter);
+        mPresenter.testSina();
     }
 
     @Override
@@ -63,8 +80,11 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     }
 
     @Override
-    public void onClick(View v) {
-
+    public void updateView(List<StockInfo> infos) {
+        mHelp.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+        mData.clear();
+        mData.addAll(infos);
+        mAdapter.notifyDataSetChanged();
     }
-
 }
