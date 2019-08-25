@@ -15,12 +15,13 @@
  */
 package com.iot.automatic.home.fragment.map.model;
 
-import android.app.Application;
-import com.google.gson.Gson;
 import com.iot.automatic.home.fragment.map.contract.MapContract;
+import com.iot.automatic.service.HomeService;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
+import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 
 import javax.inject.Inject;
 
@@ -36,11 +37,6 @@ import javax.inject.Inject;
  */
 @FragmentScope
 public class MapModel extends BaseModel implements MapContract.Model {
-    @Inject
-    Gson mGson;
-
-    @Inject
-    Application mApp;
 
     @Inject
     public MapModel(IRepositoryManager repositoryManager) {
@@ -48,9 +44,9 @@ public class MapModel extends BaseModel implements MapContract.Model {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        this.mApp = null;
-        mGson = null;
+    public Observable<ResponseBody> getSinal(String url) {
+        return mRepositoryManager
+                .obtainRetrofitService(HomeService.class)
+                .getSina(url);
     }
 }

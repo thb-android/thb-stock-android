@@ -3,20 +3,33 @@ package com.iot.automatic.home.fragment.mine.view;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import butterknife.BindView;
 import com.iot.automatic.R;
+import com.iot.automatic.app.ui.MarginItemDecoration;
 import com.iot.automatic.home.fragment.mine.DaggerMineComponent;
 import com.iot.automatic.home.fragment.mine.contract.MineContract;
 import com.iot.automatic.home.fragment.mine.entity.MineEntity;
+import com.iot.automatic.home.fragment.mine.entity.MineEntity.MineItem;
 import com.iot.automatic.home.fragment.mine.presenter.MinePresenter;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
+import com.jess.arms.utils.ArmsUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MineFragment extends BaseFragment<MinePresenter> implements MineContract.View {
 
-    private View mContentView;
+    @BindView(R.id.mine_recycler)
+    RecyclerView mRecyclerView;
+    ViewAdapter mAdapter;
+
+    private final List<MineItem> mData = new ArrayList<>();
 
     @Nullable
     @Override
@@ -36,19 +49,17 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
 
     @Override
     public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (null == mContentView) {
-            mContentView = inflater.inflate(R.layout.fragment_home_mine, container, false);
-        }
-
-        ViewGroup parent = (ViewGroup) mContentView.getParent();
-        if (parent != null) {
-            parent.removeView(mContentView);
-        }
-        return mContentView;
+        return inflater.inflate(R.layout.fragment_home_mine, container, false);
     }
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+        mAdapter = new ViewAdapter(mContext, mData);
+        final int color = ArmsUtils.getColor(mContext, R.color.light_gray);
+        mRecyclerView.addItemDecoration(new MarginItemDecoration(mContext, color));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mRecyclerView.setAdapter(mAdapter);
+        mPresenter.getMineData();
     }
 
     @Override
@@ -58,6 +69,9 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
 
     @Override
     public void updateView(MineEntity entity) {
+        mData.clear();
+        mData.addAll(entity.items);
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override

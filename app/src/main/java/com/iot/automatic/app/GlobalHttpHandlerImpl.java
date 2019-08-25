@@ -1,21 +1,10 @@
 package com.iot.automatic.app;
 
 import android.content.Context;
-import com.alibaba.android.arouter.utils.TextUtils;
-import com.iot.automatic.app.utils.SecureUtil;
-import com.iot.automatic.app.utils.pref.UserPreferences;
 import com.jess.arms.http.GlobalHttpHandler;
-import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-
-import static com.iot.automatic.app.utils.pref.UserPreferences.KEY_TOKEN;
 
 /**
  * ================================================
@@ -70,40 +59,7 @@ public class GlobalHttpHandlerImpl implements GlobalHttpHandler {
         /* 如果需要在请求服务器之前做一些操作, 则重新构建一个做过操作的 Request 并 return, 如增加 Header、Params 等请求信息, 不做操作则直接返回参数 request
         return chain.request().newBuilder().header("token", tokenId)
                               .build(); */
-        return addCommonParams(request);
-    }
-
-    private Request addCommonParams(Request oldRequest) {
-        final String accessToken = UserPreferences.getInstance().getString(KEY_TOKEN, null);
-        HttpUrl httpUrl = oldRequest.url()
-                .newBuilder()
-                .addQueryParameter("timestamp", String.valueOf(System.currentTimeMillis()))
-                .build();
-
-        Set<String> nameSet = httpUrl.queryParameterNames();
-        ArrayList<String> nameList = new ArrayList<>(nameSet);
-        HashMap<String, String> oldParams = new HashMap<>();
-
-        for (int i = 0; i < nameList.size(); i++) {
-            final String key = nameList.get(i);
-            final List<String> parameterValues = httpUrl.queryParameterValues(key);
-            String value = parameterValues != null && parameterValues.size() > 0 ? parameterValues.get(0) : "";
-            oldParams.put(key, value);
-        }
-
-        final String sign = SecureUtil.createSign(oldParams, accessToken);
-        HttpUrl.Builder builder = httpUrl.newBuilder()
-                .addQueryParameter("sign", sign)
-                .addQueryParameter("signMethod", "md5");
-
-        if (!TextUtils.isEmpty(accessToken)) {
-            builder.addQueryParameter("access_token", accessToken);
-        }
-        httpUrl = builder.build();
-
-        return oldRequest.newBuilder()
-                .url(httpUrl)
-                .build();
+        return request;
     }
 
 }

@@ -41,9 +41,9 @@ public interface MineComponent {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        MineComponent.Builder view(MineContract.View view);
+        Builder view(MineContract.View view);
 
-        MineComponent.Builder appComponent(AppComponent appComponent);
+        Builder appComponent(AppComponent appComponent);
 
         MineComponent build();
     }

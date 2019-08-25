@@ -10,11 +10,8 @@ import com.iot.automatic.R;
 import com.iot.automatic.home.fragment.map.DaggerMapComponent;
 import com.iot.automatic.home.fragment.map.contract.MapContract;
 import com.iot.automatic.home.fragment.map.presenter.MapPresenter;
-import com.iot.automatic.service.event.MapLayerSelectEvent;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 public class MapFragment extends BaseFragment<MapPresenter> implements MapContract.View, View.OnClickListener {
 
@@ -40,22 +37,19 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
         if (parent != null) {
             parent.removeView(mContentView);
         }
+
+        mContentView.findViewById(R.id.btn_click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.testSina();
+            }
+        });
         return mContentView;
     }
 
-
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        final View view = getView();
-        if (!EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().register(this);
-        }
-    }
 
-    @Subscribe
-    public void onEvent(MapLayerSelectEvent event) {
-        if (event.type == MapLayerSelectEvent.HOME_MAP_TYPE) {
-        }
     }
 
     @Override
@@ -66,27 +60,6 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     @Override
     public void showMessage(@NonNull String message) {
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 
     @Override

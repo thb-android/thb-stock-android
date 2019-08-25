@@ -1,7 +1,6 @@
 package com.iot.automatic.app;
 
 import com.iot.automatic.app.service.Result;
-import com.iot.automatic.app.utils.LoginHelper;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 
@@ -34,7 +33,6 @@ public abstract class IOTErrorHandleSubscriber<T> extends ErrorHandleSubscriber<
             Result temp = (Result) res;
             if (temp.code == ERROR_TOKEN) {
                 isNeedGO = false;
-                LoginHelper.loginOut();
             }
         }
 

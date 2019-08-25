@@ -5,17 +5,15 @@ import android.content.pm.PackageManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import com.iot.automatic.app.Common;
+import com.iot.automatic.home.fragment.map.entity.SinaStockInfo;
 import com.jess.arms.utils.ArmsUtils;
 
+import java.io.*;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.PI;
-
 public final class Utils {
-    private static double AXIS = 6378245.0;  //
-    private static double OFFSET = 0.00669342162296594323;  //(a^2 - b^2) / a^2
-    private static double X_PI = PI * 3000.0 / 180.0;
-
 
     private Utils() {
     }
@@ -53,6 +51,38 @@ public final class Utils {
             e.printStackTrace();
         }
         return version;
+    }
+
+    public static List<SinaStockInfo> pares2Stock(InputStream is) {
+        InputStreamReader reader = new InputStreamReader(new BufferedInputStream(is), Charset.forName("gbk"));
+        BufferedReader bReader = new BufferedReader(reader);
+
+        List<SinaStockInfo> list = parseSinaStockInfosFromReader(bReader);
+        try {
+            bReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    private static List<SinaStockInfo> parseSinaStockInfosFromReader(BufferedReader reader) {
+        ArrayList<SinaStockInfo> list = new ArrayList<SinaStockInfo>(10);
+        String sourceLine = null;
+
+        try {
+            while ((sourceLine = reader.readLine()) != null) {
+                list.add(SinaStockInfo.parseStockInfo(sourceLine));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

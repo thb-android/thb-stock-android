@@ -29,7 +29,7 @@ import com.jess.arms.di.component.AppComponent;
  * <a href="https://github.com/JessYanCoding/MVPArmsTemplate">模版请保持更新</a>
  * ================================================
  */
-@Route(path = ARouterPath.ABOUT_US_ACTIVITY)
+@Route(path = ARouterPath.LOAD_STOCK_ACTIVITY)
 public class AboutUsActivity extends IOTBaseActivity<AboutUsPresenter> implements AboutUsContract.View {
 
     @BindView(R.id.about_text)
