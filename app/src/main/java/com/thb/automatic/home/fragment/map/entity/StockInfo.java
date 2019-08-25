@@ -80,7 +80,7 @@ public class StockInfo {
         }
 
         StockInfo info = new StockInfo();
-
+        info.symbol = getSymbol(source);
         info.name = infoStr[0];
         info.open = Float.parseFloat(infoStr[1]);
         info.settlement = Float.parseFloat(infoStr[2]);
@@ -110,6 +110,13 @@ public class StockInfo {
         info.mSell = new BuyOrSellInfo[]{sell1, sell2, sell3, sell4, sell5};
 
         return info;
+    }
+
+    private static String getSymbol(String source) {
+        int end = source.indexOf('=');
+        String temp = source.substring(0, end);
+        String[] titleArr = temp.split("_");
+        return titleArr[2];
     }
 
     public static class ParseStockInfoException extends Exception {
