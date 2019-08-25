@@ -2,7 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/app_main_splash</item>
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
     <style name="NormalTheme" parent="Theme.AppCompat.Light.NoActionBar" />

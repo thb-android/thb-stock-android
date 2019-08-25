@@ -16,14 +16,11 @@
 package com.iot.automatic.home.fragment.mine.model;
 
 import android.app.Application;
-import com.iot.automatic.R;
 import com.iot.automatic.home.fragment.mine.contract.MineContract;
 import com.iot.automatic.home.fragment.mine.entity.MineEntity;
-import com.iot.automatic.service.arouter.ARouterPath;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
-import com.jess.arms.utils.ArmsUtils;
 import io.reactivex.Observable;
 
 import javax.inject.Inject;
@@ -53,10 +50,10 @@ public class MineModel extends BaseModel implements MineContract.Model {
 //        item2.imgId = R.drawable.ic_cmd_journal;
 //        item2.text = ArmsUtils.getString(mApp, R.string.mine_log_directive);
 
-        MineEntity.MineItem item3 = new MineEntity.MineItem();
-        item3.imgId = R.drawable.ic_fence_admin;
-        item3.text = ArmsUtils.getString(mApp, R.string.mine_rail_manager);
-        item3.aRouterPath = ARouterPath.FENCE_MANAGER_ACTIVITY;
+//        MineEntity.MineItem item3 = new MineEntity.MineItem();
+//        item3.imgId = R.drawable.ic_fence_admin;
+//        item3.text = ArmsUtils.getString(mApp, R.string.mine_rail_manager);
+//        item3.aRouterPath = ARouterPath.FENCE_MANAGER_ACTIVITY;
 
 //        MineEntity.MineItem item4 = new MineEntity.MineItem();
 //        item4.imgId = R.drawable.ic_common_problem;
@@ -68,18 +65,18 @@ public class MineModel extends BaseModel implements MineContract.Model {
 //        item5.text = ArmsUtils.getString(mApp, R.string.mine_setting);
 //        item5.aRouterPath = ARouterPath.SETTING_ACTIVITY;
 
-        MineEntity.MineItem item5 = new MineEntity.MineItem();
-        item5.imgId = R.drawable.setting_page_about;
-        item5.text = ArmsUtils.getString(mApp, R.string.set_about_us);
-        item5.aRouterPath = ARouterPath.ABOUT_US_ACTIVITY;
+//        MineEntity.MineItem item5 = new MineEntity.MineItem();
+//        item5.imgId = R.drawable.setting_page_about;
+//        item5.text = ArmsUtils.getString(mApp, R.string.set_about_us);
+//        item5.aRouterPath = ARouterPath.ABOUT_US_ACTIVITY;
 
         entity.items = new ArrayList<>(5);
 
 //        entity.items.add(item1);
 //        entity.items.add(item2);
-        entity.items.add(item3);
+//        entity.items.add(item3);
 //        entity.items.add(item4);
-        entity.items.add(item5);
+//        entity.items.add(item5);
 
         return Observable.just(entity);
     }

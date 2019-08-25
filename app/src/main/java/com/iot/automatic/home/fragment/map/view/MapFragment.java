@@ -18,6 +18,8 @@ import org.greenrobot.eventbus.Subscribe;
 
 public class MapFragment extends BaseFragment<MapPresenter> implements MapContract.View, View.OnClickListener {
 
+    private View mContentView;
+
     @Override
     public void setupFragmentComponent(@NonNull AppComponent appComponent) {
         DaggerMapComponent
@@ -30,7 +32,15 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
 
     @Override
     public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home_map, null);
+        if (null == mContentView) {
+            mContentView = inflater.inflate(R.layout.fragment_home_map, container, false);
+        }
+
+        ViewGroup parent = (ViewGroup) mContentView.getParent();
+        if (parent != null) {
+            parent.removeView(mContentView);
+        }
+        return mContentView;
     }
 
 
