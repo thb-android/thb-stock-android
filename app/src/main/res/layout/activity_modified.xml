@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app">
+
+    <include layout="@layout/include_title_layout"/>
+
+    <View
+        android:id="@+id/modified_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/iot_title"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/modified_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modified_line1"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/modified_txt_1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="旧密码"/>
+
+        <EditText
+            android:id="@+id/modified_edit_1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="#5d5d5d"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@color/light_bLue"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:maxLines="1"
+            android:textColorHint="@color/dark_gray"
+            android:textSize="14sp"
+            android:background="@null"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/modified_txt_1"
+            tools:text="旧密码"/>
+
+        <View
+            android:id="@+id/modified_constraint_line1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/modified_edit_1"/>
+
+        <TextView
+            android:id="@+id/modified_txt_2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/modified_constraint_line1"
+            tools:text="新密码"/>
+
+        <EditText
+            android:id="@+id/modified_edit_2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="#5d5d5d"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@color/light_bLue"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:maxLines="1"
+            android:textColorHint="@color/dark_gray"
+            android:textSize="14sp"
+            android:background="@null"
+            app:layout_constraintTop_toTopOf="@+id/modified_constraint_line1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/modified_txt_2"
+            tools:text="新密码"/>
+
+        <View
+            android:id="@+id/modified_constraint_line2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/modified_edit_2"/>
+
+        <TextView
+            android:id="@+id/modified_txt_3"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/modified_constraint_line2"
+            tools:text="确认密码"/>
+
+        <EditText
+            android:id="@+id/modified_edit_3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textColor="#5d5d5d"
+            android:gravity="center_vertical"
+            android:textCursorDrawable="@color/light_bLue"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:maxLines="1"
+            android:textColorHint="@color/dark_gray"
+            android:textSize="14sp"
+            android:background="@null"
+            app:layout_constraintTop_toTopOf="@+id/modified_constraint_line2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/modified_txt_3"
+            tools:text="确认密码"/>
+
+        <android.support.constraint.Group
+            android:id="@+id/modified_password_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="modified_constraint_line1, modified_txt_2, modified_edit_2, modified_constraint_line2, modified_txt_3, modified_edit_3"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/modified_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/modified_constraint"/>
+
+    <TextView
+        android:id="@+id/modified_err_remind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/red"
+        android:layout_below="@+id/modified_line2"/>
+
+    <TextView
+        android:id="@+id/modified_submit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:background="@drawable/bg_blue_radius_2dp"/>
+</RelativeLayout>

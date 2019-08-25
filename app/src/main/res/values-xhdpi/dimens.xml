@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_height">50dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="home_list_tab_radius">6dp</dimen>
+
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="50dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/home_list_item_group_arrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/selected_drop_down"/>
+
+    <TextView
+        android:id="@+id/home_list_item_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="17sp"
+        tools:text="Genre"/>
+
+    <TextView
+        android:id="@+id/home_list_item_group_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="center_vertical|end"
+        android:text="(9)"
+        tools:text="Genre"/>
+
+    <View
+        android:id="@+id/list_child_item_line"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/light_gray"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>

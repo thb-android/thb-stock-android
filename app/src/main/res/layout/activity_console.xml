@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="3dp"
+    android:background="@drawable/device_control_background">
+
+    <include
+        layout="@layout/include_title_layout"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/console_car_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="#d6e2f1"
+        app:layout_constraintTop_toBottomOf="@+id/iot_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/console_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/console_tab_line"/>
+
+    <View
+        android:id="@+id/console_tab_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/light_gray"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/console_tab_set_safe"/>
+
+    <TextView
+        android:id="@+id/console_tab_set_safe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/console_set_safe"
+        android:textSize="12sp"
+        android:layout_marginLeft="45dp"
+        android:clickable="true"
+        android:drawablePadding="2dp"
+        android:textColor="@drawable/bg_console_bottom_tab_text_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/console_tab_clear_safe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/console_clear_safe"
+        android:textSize="12sp"
+        android:clickable="true"
+        android:drawablePadding="2dp"
+        android:textColor="@drawable/bg_console_bottom_tab_text_selector"
+        app:layout_constraintLeft_toLeftOf="@+id/console_tab_blackout"
+        app:layout_constraintRight_toRightOf="@+id/console_tab_set_safe"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/console_tab_blackout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/console_blackout"
+        android:textSize="12sp"
+        android:layout_marginRight="45dp"
+        android:clickable="true"
+        android:drawablePadding="2dp"
+        android:textColor="@drawable/bg_console_bottom_tab_text_selector"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>

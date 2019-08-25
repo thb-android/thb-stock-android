@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="60dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/list_child_item_car_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/device_list_icon"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/list_child_item_device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="device_name"
+        android:textColor="@color/light_gray"
+        app:layout_constraintTop_toTopOf="@+id/list_child_item_car_img"
+        app:layout_constraintLeft_toRightOf="@+id/list_child_item_car_img"/>
+
+    <TextView
+        android:id="@+id/list_child_item_imei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="device_imei"
+        android:textColor="@color/light_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/list_child_item_car_img"
+        app:layout_constraintLeft_toRightOf="@+id/list_child_item_car_img"/>
+
+    <FrameLayout
+        android:id="@+id/list_child_more_operation"
+        android:layout_width="31dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical|left"
+            android:src="@drawable/icon_more"/>
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

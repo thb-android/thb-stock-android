@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@color/white"
+    android:minHeight="60dp">
+
+    <ImageView
+        android:id="@+id/alarm_car_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/device_list_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/alarm_device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/light_gray"
+        app:layout_constraintLeft_toRightOf="@+id/alarm_car_img"
+        app:layout_constraintTop_toTopOf="@+id/alarm_car_img"
+        tools:text="设备名" />
+
+    <TextView
+        android:id="@+id/alarm_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/light_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/alarm_car_img"
+        app:layout_constraintLeft_toRightOf="@+id/alarm_car_img"
+        tools:text="报警类型" />
+
+    <TextView
+        android:id="@+id/alarm_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:textColor="@color/light_gray"
+        android:textSize="12sp"
+        app:layout_constraintRight_toLeftOf="@+id/alarm_more_operation"
+        app:layout_constraintTop_toTopOf="@+id/alarm_car_img"
+        tools:text="报警日期" />
+
+    <TextView
+        android:id="@+id/alarm_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:textColor="@color/light_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/alarm_car_img"
+        app:layout_constraintRight_toLeftOf="@+id/alarm_more_operation"
+        tools:text="报警位置" />
+
+    <FrameLayout
+        android:id="@+id/alarm_more_operation"
+        android:layout_width="31dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical|left"
+            android:src="@drawable/icon_more" />
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

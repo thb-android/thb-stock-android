@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray">#a7a8ac</color>
+    <color name="light_gray">#c3c3c3</color>
+    <color name="light_bLue">#2c97fc</color>
+    <color name="light_bLue_50">#802c97fc</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="red">#FF0000</color>
+
+
+    <color name="bg_app">#f0f0f0</color>
+    <color name="translucent">#00000000</color>
+    <color name="light_white">#dcdcdc</color>
+
+    <color name="info_window_fault">#B45354</color>
+    <color name="info_window_move">#5CB75D</color>
+    <color name="info_window_offline">#E1C837</color>
+    <color name="info_window_outofcontact">#A5A5A4</color>
+    <color name="info_window_stop">#3088C9</color>
+</resources>

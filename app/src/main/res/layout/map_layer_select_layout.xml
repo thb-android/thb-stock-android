@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:orientation="horizontal">
+
+    <!-- 谷歌卫星 -->
+    <TextView
+            android:id="@+id/google_sat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/map_satellite"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:text="谷歌卫星"
+            android:gravity="center"
+            android:layout_marginRight="8dp"
+            />
+
+    <!-- 谷歌街道 -->
+    <TextView
+            android:id="@+id/google_road"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/map_street"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_marginRight="8dp"
+            android:padding="8dp"
+            android:text="谷歌街道"/>
+
+    <!-- 高德地图 -->
+    <TextView
+            android:id="@+id/gaode_map"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/map_osm"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="高德地图"/>
+
+
+</LinearLayout>

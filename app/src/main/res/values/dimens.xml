@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 标题底部阴影高度 -->
+    <dimen name="map_select_layer_size">38dp</dimen>
+
+    <dimen name="track_time_icon_size">24dp</dimen>
+
+    <dimen name="track_item_height">50dp</dimen>
+
+
+</resources>

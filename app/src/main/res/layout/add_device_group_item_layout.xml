@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:minHeight="50dp">
+
+    <ImageView
+        android:id="@+id/add_device_item_group_arrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/selected_drop_down" />
+
+    <TextView
+        android:id="@+id/add_device_item_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="40dp"
+        android:textSize="17sp"
+        tools:text="默认组" />
+
+    <View
+        android:id="@+id/list_child_item_line"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_gravity="bottom"
+        android:background="@color/light_gray" />
+</FrameLayout>
