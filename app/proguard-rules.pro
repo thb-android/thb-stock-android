@@ -273,7 +273,7 @@
 -keep public class com.tencent.bugly.**{*;}
 
 ##网络model类，不能混淆
--keep class com.iot.automatic.app.service.Result{*;}
+-keep class com.thb.automatic.app.service.Result{*;}
 -keep public class **.entity.** {*;}
 
 -keep class com.chad.library.adapter.** {
