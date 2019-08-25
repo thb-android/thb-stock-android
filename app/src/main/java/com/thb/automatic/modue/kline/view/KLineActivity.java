@@ -12,12 +12,12 @@ import com.bumptech.glide.Glide;
 import com.jess.arms.di.component.AppComponent;
 import com.thb.automatic.IOTBaseActivity;
 import com.thb.automatic.R;
-import com.thb.automatic.app.utils.Utils;
 import com.thb.automatic.modue.kline.DaggerKLineComponent;
 import com.thb.automatic.modue.kline.contract.KLineContract;
 import com.thb.automatic.modue.kline.presenter.KLinePresenter;
 import com.thb.automatic.service.arouter.ARouterPath;
 
+import static com.thb.automatic.app.service.Constant.key_stock_name;
 import static com.thb.automatic.app.service.Constant.key_stock_symbol;
 
 
@@ -41,6 +41,8 @@ public class KLineActivity extends IOTBaseActivity<KLinePresenter> implements KL
 
     @Autowired(name = key_stock_symbol)
     String mStockSymbol;
+    @Autowired(name = key_stock_name)
+    String mStockName;
 
     @Override
     public void setupActivityComponent(@NonNull AppComponent appComponent) {
@@ -60,7 +62,7 @@ public class KLineActivity extends IOTBaseActivity<KLinePresenter> implements KL
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         ARouter.getInstance().inject(this);
-        setTitle(Utils.getString(R.string.k_line_title));
+        setTitle(mStockName + "  " + mStockSymbol);
         Glide.with(this)
                 .load("http://image.sinajs.cn/newchart/daily/n/" + mStockSymbol + ".gif")
                 .into(mKLineImage);

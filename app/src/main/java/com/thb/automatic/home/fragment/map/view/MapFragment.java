@@ -66,7 +66,7 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
         mRecyclerView.addItemDecoration(new MarginItemDecoration(mContext, color));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);
-        mPresenter.testSina();
+        mPresenter.loadData();
     }
 
     @Override
@@ -83,8 +83,12 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     public void updateView(List<StockInfo> infos) {
         mHelp.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
-        mData.clear();
         mData.addAll(infos);
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void updateView(String error) {
+        mHelp.setText(error);
     }
 }

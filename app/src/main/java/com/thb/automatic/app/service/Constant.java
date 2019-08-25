@@ -15,6 +15,7 @@ public interface Constant {
     String shanghai_file = "shanghai.txt";
 
     String key_stock_symbol = "key_stock_symbol";
+    String key_stock_name = "key_stock_name";
 
     String JUHE_KEY = "061b3fbb589edef2187ea9d5eae2e1b8";
 }

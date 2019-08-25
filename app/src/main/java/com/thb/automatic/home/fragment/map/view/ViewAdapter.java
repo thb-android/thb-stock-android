@@ -13,6 +13,7 @@ import com.thb.automatic.home.fragment.map.entity.StockInfo;
 
 import java.util.List;
 
+import static com.thb.automatic.app.service.Constant.key_stock_name;
 import static com.thb.automatic.app.service.Constant.key_stock_symbol;
 import static com.thb.automatic.service.arouter.ARouterPath.K_LINE_ACTIVITY;
 
@@ -38,7 +39,10 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
         final StockInfo item = mData.get(i);
         holder.text.setText(String.format("%s   %s", item.name, item.symbol));
         holder.itemView.setOnClickListener(v -> {
-            ARouter.getInstance().build(K_LINE_ACTIVITY).withString(key_stock_symbol, item.symbol).navigation();
+            ARouter.getInstance()
+                    .build(K_LINE_ACTIVITY)
+                    .withString(key_stock_name, item.name)
+                    .withString(key_stock_symbol, item.symbol).navigation();
         });
     }
 
