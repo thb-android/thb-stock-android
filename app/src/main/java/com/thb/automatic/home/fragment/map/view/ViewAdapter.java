@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.thb.automatic.R;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import static com.thb.automatic.app.service.Constant.key_stock_name;
@@ -21,6 +22,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
 
     private Context mContext;
     private List<StockInfo> mData;
+    private DecimalFormat df = new DecimalFormat("0.00");
 
     public ViewAdapter(Context context, List<StockInfo> data) {
         this.mContext = context;
@@ -38,6 +40,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
     public void onBindViewHolder(@NonNull CustomHolder holder, int i) {
         final StockInfo item = mData.get(i);
         holder.text.setText(String.format("%s   %s", item.name, item.symbol));
+        holder.price.setText(String.format("%s   %s%s", df.format(item.trade), df.format(item.changepercent), "%"));
         holder.itemView.setOnClickListener(v -> {
             ARouter.getInstance()
                     .build(K_LINE_ACTIVITY)
@@ -54,10 +57,12 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
     class CustomHolder extends RecyclerView.ViewHolder {
 
         private TextView text;
+        private TextView price;
 
         CustomHolder(View itemView) {
             super(itemView);
             text = itemView.findViewById(R.id.map_item_txt);
+            price = itemView.findViewById(R.id.stock_price_percent);
         }
 
     }

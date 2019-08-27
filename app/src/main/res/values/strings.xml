@@ -8,11 +8,17 @@
     <string name="home_tab_msg">消息</string>
     <string name="home_tab_mine">我的</string>
 
+    <!-- 首页 -->
+    <string name="home_map_no_top_line">无上阴线</string>
+    <string name="home_map_percent_hint">1</string>
+    <string name="home_map_percent_t">%</string>
+    <string name="home_map_begin_query">开始查询</string>
+
     <string name="set_about_us">关于我们</string>
 
     <string name="mine_init">点击初始化，获取所有股票代码</string>
     <string name="k_line_title">日K线图</string>
 
-    <string name="map_help_txt">请先不要动，正在后台解析</string>
+    <string name="map_help_txt">请点击右侧《开始查询》按钮</string>
 
 </resources>

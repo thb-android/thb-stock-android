@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.jess.arms.base.BaseFragment;
@@ -15,20 +17,28 @@ import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 import com.thb.automatic.R;
 import com.thb.automatic.app.ui.MarginItemDecoration;
+import com.thb.automatic.app.utils.Utils;
 import com.thb.automatic.home.fragment.map.DaggerMapComponent;
 import com.thb.automatic.home.fragment.map.contract.MapContract;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
 import com.thb.automatic.home.fragment.map.presenter.MapPresenter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MapFragment extends BaseFragment<MapPresenter> implements MapContract.View {
 
     private View mContentView;
 
-    @BindView(R.id.map_help)
+    @BindView(R.id.check_no_top_line)
+    CheckBox mCheckBox;
+    @BindView(R.id.percent_edit)
+    EditText mPercentEdit;
+    @BindView(R.id.map_result)
     TextView mHelp;
+    @BindView(R.id.map_query_btn)
+    View mBtnQuery;
     @BindView(R.id.map_recycler)
     RecyclerView mRecyclerView;
     ViewAdapter mAdapter;
@@ -66,7 +76,15 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
         mRecyclerView.addItemDecoration(new MarginItemDecoration(mContext, color));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);
-        mPresenter.loadData();
+        mBtnQuery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mData.clear();
+                mAdapter.notifyDataSetChanged();
+                mPresenter.loadData(mPercentEdit.getText().toString(), mCheckBox.isChecked());
+                Utils.hideSoftKeyboard(v);
+            }
+        });
     }
 
     @Override
@@ -81,9 +99,10 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
 
     @Override
     public void updateView(List<StockInfo> infos) {
-        mHelp.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
         mData.addAll(infos);
+
+        Collections.sort(mData, (o1, o2) -> Double.compare(o1.changepercent, o2.changepercent));
         mAdapter.notifyDataSetChanged();
     }
 

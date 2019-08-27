@@ -15,4 +15,14 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         tools:text="股票" />
+
+    <TextView
+        android:id="@+id/stock_price_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        tools:text="股票当前价格百分比" />
 </FrameLayout>

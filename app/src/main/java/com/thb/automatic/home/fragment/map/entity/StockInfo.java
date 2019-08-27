@@ -15,6 +15,8 @@
  */
 package com.thb.automatic.home.fragment.map.entity;
 
+import java.text.DecimalFormat;
+
 /**
  * 新浪股票信息。
  *
@@ -29,27 +31,27 @@ public class StockInfo {
     /*名称*/
     public String name;
     /*最新价*/
-    public float trade;
+    public double trade;
     /*涨跌额*/
-    public float pricechange;
+    public double pricechange;
     /*涨跌幅*/
-    public float changepercent;
+    public double changepercent;
     /*买一价*/
-    public float buy;
+    public double buy;
     /*卖一价*/
-    public float sell;
+    public double sell;
     /*昨收*/
-    public float settlement;
+    public double settlement;
     /*今开*/
-    public float open;
+    public double open;
     /*最高*/
-    public float high;
+    public double high;
     /*最低*/
-    public float low;
+    public double low;
     /*成交量，单位股*/
     public long volume;
     /*成交额，单位元*/
-    public float amount;
+    public double amount;
     /*时间*/
     public String ticktime;
     //日期
@@ -58,6 +60,8 @@ public class StockInfo {
     public BuyOrSellInfo[] mBuy;
     //卖单情况
     public BuyOrSellInfo[] mSell;
+
+    static DecimalFormat df = new DecimalFormat("#.00");
 
     /**
      * 从一行响应字符串中解析得到SinaStockInfo数据结构。
@@ -91,6 +95,8 @@ public class StockInfo {
         info.amount = Float.parseFloat(infoStr[9]);
         info.mDate = infoStr[30];
         info.ticktime = infoStr[31];
+        info.pricechange = info.trade - info.settlement;
+        info.changepercent = Double.valueOf(df.format((info.pricechange / info.settlement) * 100.0));
 
         BuyOrSellInfo buy1 = new BuyOrSellInfo(Long.parseLong(infoStr[10]), Float.parseFloat(infoStr[11]));
         BuyOrSellInfo buy2 = new BuyOrSellInfo(Long.parseLong(infoStr[12]), Float.parseFloat(infoStr[13]));

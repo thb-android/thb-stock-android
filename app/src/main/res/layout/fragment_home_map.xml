@@ -1,20 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/map_help"
+    <CheckBox
+        android:id="@+id/check_no_top_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/home_map_no_top_line"
+        app:layout_constraintBottom_toBottomOf="@+id/percent_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/percent_edit" />
+
+    <EditText
+        android:id="@+id/percent_edit"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:hint="@string/home_map_percent_hint"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/check_no_top_line"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_map_percent_t"
+        app:layout_constraintBottom_toBottomOf="@+id/percent_edit"
+        app:layout_constraintStart_toEndOf="@+id/percent_edit"
+        app:layout_constraintTop_toTopOf="@+id/percent_edit" />
+
+    <TextView
+        android:id="@+id/map_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/info_window_offline"
         android:text="@string/map_help_txt"
-        android:textSize="28sp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_no_top_line" />
+
+    <TextView
+        android:id="@+id/map_query_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:background="@color/light_bLue_50"
+        android:paddingStart="3dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="3dp"
+        android:paddingBottom="10dp"
+        android:text="@string/home_map_begin_query"
+        app:layout_constraintBottom_toBottomOf="@+id/map_result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/percent_edit" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/map_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:background="@color/white"
-        android:visibility="gone" />
-</FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/map_result" />
+</android.support.constraint.ConstraintLayout>
