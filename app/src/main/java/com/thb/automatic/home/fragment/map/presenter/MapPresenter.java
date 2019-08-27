@@ -39,10 +39,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
     @Inject
     RxErrorHandler mErrorHandler;
 
-    /**
-     * 百分比默认是1%
-     */
-    private double mPercent = 1;
+    private double mPercent;
     private boolean mIsNoTopLine;
 
     private int mTotal;
@@ -58,7 +55,10 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         mEffective = 0;
 
         if (!TextUtils.isEmpty(percent)) {
-            mPercent = Double.valueOf(percent) / 1000.0;
+            mPercent = Double.valueOf(percent);
+        } else {
+            // 百分比默认是1%
+            mPercent = 1.0;
         }
         mIsNoTopLine = isNoTopLine;
         new Thread(() -> {
@@ -158,7 +158,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
                             }
                         }
                         mRootView.updateView(temp);
-                        mRootView.updateView("共" + mTotal + "条数据，其中有效数据共" + mEffective + "条");
+                        mRootView.updateView("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
                     }
                 });
     }

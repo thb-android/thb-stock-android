@@ -82,6 +82,7 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
                 mData.clear();
                 mAdapter.notifyDataSetChanged();
                 mPresenter.loadData(mPercentEdit.getText().toString(), mCheckBox.isChecked());
+                mPercentEdit.setText(null);
                 Utils.hideSoftKeyboard(v);
             }
         });
