@@ -3,16 +3,20 @@
     <string name="no_data">没有数据，请稍后再试</string>
 
     <!-- 首页 -->
-    <string name="home_tab_location">定位</string>
-    <string name="home_tab_list">列表</string>
+    <string name="home_tab_location">K线筛选</string>
+    <string name="home_tab_list">十字星</string>
     <string name="home_tab_msg">消息</string>
-    <string name="home_tab_mine">我的</string>
+    <string name="home_tab_mine">初始化</string>
 
     <!-- 首页 -->
     <string name="home_map_no_top_line">无上阴线</string>
     <string name="home_map_percent_hint">1</string>
     <string name="home_map_percent_t">%</string>
     <string name="home_map_begin_query">开始查询</string>
+    
+    <string name="home_list_percent_hint">3</string>
+    <string name="home_list_doji">十字星</string>
+    <string name="home_list_doji_desc">波动幅度</string>
 
     <string name="set_about_us">关于我们</string>
 

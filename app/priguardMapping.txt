@@ -2344,7 +2344,7 @@ com.alibaba.android.arouter.core.LogisticsCenter -> c.a.a.a.a.f:
     16:16:android.content.res.Resources com.jess.arms.utils.ArmsUtils.getResources(android.content.Context):0:0 -> a
     16:16:int com.jess.arms.utils.ArmsUtils.getColor(android.content.Context,int):0 -> a
     17:17:int com.jess.arms.utils.ArmsUtils.getColor(android.content.Context,int):0:0 -> a
-    org.osmdroid.config.IConfigurationProvider org.osmdroid.config.Configuration.getInstance() -> a
+    java.lang.String com.thb.automatic.app.utils.Utils.getDirectory() -> a
     18:18:int kotlin.internal.ProgressionUtilKt.differenceModulo(int,int,int):0:0 -> a
     18:18:int kotlin.internal.ProgressionUtilKt.getProgressionLastElement(int,int,int):0 -> a
     19:19:int kotlin.internal.ProgressionUtilKt.getProgressionLastElement(int,int,int):0:0 -> a
@@ -2363,7 +2363,6 @@ com.alibaba.android.arouter.core.LogisticsCenter -> c.a.a.a.a.f:
     28:28:boolean com.alibaba.android.arouter.launcher.ARouter.debuggable():0:0 -> a
     28:28:void init(android.content.Context,java.util.concurrent.ThreadPoolExecutor):0 -> a
     29:29:void init(android.content.Context,java.util.concurrent.ThreadPoolExecutor):0:0 -> a
-    void com.jess.arms.base.BaseActivity_MembersInjector.injectMPresenter(com.jess.arms.base.BaseActivity,com.jess.arms.mvp.IPresenter) -> a
     boolean com.alibaba.android.arouter.utils.TextUtils.isEmpty(java.lang.CharSequence) -> a
     30:30:android.content.pm.PackageInfo com.alibaba.android.arouter.utils.PackageUtils.getPackageInfo(android.content.Context):0:0 -> a
     30:30:boolean com.alibaba.android.arouter.utils.PackageUtils.isNewVersion(android.content.Context):0 -> a
@@ -2372,9 +2371,13 @@ com.alibaba.android.arouter.core.LogisticsCenter -> c.a.a.a.a.f:
     32:32:boolean com.alibaba.android.arouter.utils.MapUtils.isNotEmpty(java.util.Map):0 -> a
     boolean com.jess.arms.utils.UrlEncoderUtils.isValidHexChar(char) -> a
     long kotlin.internal.ProgressionUtilKt.mod(long,long) -> a
+    33:33:java.util.List com.thb.automatic.app.utils.Utils.parseSinaStockInfosFromReader(java.io.BufferedReader):0:0 -> a
+    33:33:java.util.List com.thb.automatic.app.utils.Utils.pares2Stock(java.io.InputStream):0 -> a
+    34:34:java.util.List com.thb.automatic.app.utils.Utils.pares2Stock(java.io.InputStream):0:0 -> a
     void setValue(com.alibaba.android.arouter.facade.Postcard,java.lang.Integer,java.lang.String,java.lang.String) -> a
     java.util.Map com.alibaba.android.arouter.utils.TextUtils.splitQueryParameters(android.net.Uri) -> a
     java.io.Writer com.google.gson.internal.Streams.writerForAppendable(java.lang.Appendable) -> a
+    org.osmdroid.config.IConfigurationProvider org.osmdroid.config.Configuration.getInstance() -> b
     1:1:android.content.res.Resources com.jess.arms.utils.ArmsUtils.getResources(android.content.Context):0:0 -> b
     1:1:java.lang.String com.jess.arms.utils.ArmsUtils.getString(android.content.Context,int):0 -> b
     2:2:java.lang.String com.jess.arms.utils.ArmsUtils.getString(android.content.Context,int):0:0 -> b
@@ -2400,6 +2403,7 @@ com.alibaba.android.arouter.launcher.ARouter -> c.a.a.a.b.a:
     boolean hasInit -> b
     com.alibaba.android.arouter.facade.Postcard build(java.lang.String) -> a
     com.alibaba.android.arouter.launcher.ARouter getInstance() -> a
+    void inject(java.lang.Object) -> a
     java.lang.Object navigation(android.content.Context,com.alibaba.android.arouter.facade.Postcard,int,com.alibaba.android.arouter.facade.callback.NavigationCallback) -> a
     java.lang.Object navigation(java.lang.Class) -> a
 com.alibaba.android.arouter.launcher._ARouter -> c.a.a.a.b.e:
@@ -2428,6 +2432,7 @@ com.alibaba.android.arouter.launcher._ARouter -> c.a.a.a.b.e:
     5:5:com.alibaba.android.arouter.facade.Postcard build(java.lang.String):0 -> a
     6:6:com.alibaba.android.arouter.facade.Postcard build(java.lang.String):0:0 -> a
     boolean init(android.app.Application) -> a
+    void inject(java.lang.Object) -> a
     java.lang.Object navigation(java.lang.Class) -> a
     void runInMainThread(java.lang.Runnable) -> a
     void startActivity(int,android.content.Context,android.content.Intent,com.alibaba.android.arouter.facade.Postcard,com.alibaba.android.arouter.facade.callback.NavigationCallback) -> a
@@ -6922,25 +6927,27 @@ com.alibaba.fastjson.util.TypeUtils -> c.a.b.f.k:
 com.android.tools.r8.GeneratedOutlineSupport -> c.b.a.a.a:
     char outline0(int,int,int,com.alibaba.fastjson.parser.JSONLexerBase) -> a
     int outline1(com.alibaba.fastjson.serializer.ASMSerializerFactory$Context,java.lang.String,com.alibaba.fastjson.asm.MethodWriter,int,java.lang.String) -> a
-    java.lang.String outline10(java.lang.String,java.lang.String,java.lang.String) -> a
-    java.lang.String outline11(java.lang.StringBuilder,java.lang.Object,java.lang.String) -> a
-    java.lang.String outline12(java.lang.StringBuilder,java.lang.String,java.lang.String) -> a
-    java.lang.StringBuilder outline13(com.alibaba.fastjson.asm.MethodWriter,int,java.lang.String,java.lang.String,java.lang.String) -> a
-    java.lang.StringBuilder outline14(java.lang.String) -> a
-    java.lang.StringBuilder outline15(java.lang.String,int,java.lang.String) -> a
-    java.lang.StringBuilder outline16(java.lang.String,java.lang.String) -> a
-    void outline17(int,int,int,java.lang.Object,int,java.lang.Object,int) -> a
-    void outline18(com.alibaba.fastjson.asm.MethodWriter,com.alibaba.fastjson.asm.Label,com.alibaba.fastjson.serializer.ASMSerializerFactory$Context,java.lang.String,int) -> a
-    void outline19(java.lang.Class,com.alibaba.fastjson.asm.MethodWriter) -> a
+    java.lang.String outline10(java.lang.String,java.lang.String) -> a
+    java.lang.String outline11(java.lang.String,java.lang.String,java.lang.String) -> a
+    java.lang.String outline12(java.lang.StringBuilder,int,java.lang.String) -> a
+    java.lang.String outline13(java.lang.StringBuilder,java.lang.Object,java.lang.String) -> a
+    java.lang.String outline14(java.lang.StringBuilder,java.lang.String,java.lang.String) -> a
+    java.lang.StringBuilder outline15(com.alibaba.fastjson.asm.MethodWriter,int,java.lang.String,java.lang.String,java.lang.String) -> a
+    java.lang.StringBuilder outline16(java.lang.String) -> a
+    java.lang.StringBuilder outline17(java.lang.String,int,java.lang.String) -> a
+    void outline19(int,int,int,java.lang.Object,int,java.lang.Object,int) -> a
     int outline2(java.lang.StringBuilder,java.lang.String,java.lang.String,com.alibaba.fastjson.parser.deserializer.ASMDeserializerFactory$Context) -> a
-    void outline20(java.lang.String,java.lang.Object,java.lang.String) -> a
+    void outline20(com.alibaba.fastjson.asm.MethodWriter,com.alibaba.fastjson.asm.Label,com.alibaba.fastjson.serializer.ASMSerializerFactory$Context,java.lang.String,int) -> a
+    void outline21(java.lang.Class,com.alibaba.fastjson.asm.MethodWriter) -> a
+    void outline22(java.lang.String,java.lang.Object,java.lang.String) -> a
     java.lang.String outline3(android.support.v7.widget.RecyclerView,java.lang.StringBuilder) -> a
     java.lang.String outline4(java.lang.Class,java.lang.StringBuilder) -> a
-    java.lang.String outline5(java.lang.String,int) -> a
-    java.lang.String outline6(java.lang.String,long) -> a
-    java.lang.String outline7(java.lang.String,java.lang.Object) -> a
-    java.lang.String outline8(java.lang.String,java.lang.Object,java.lang.String) -> b
-    java.lang.String outline9(java.lang.String,java.lang.String) -> b
+    java.lang.String outline5(java.lang.Class,java.lang.StringBuilder,java.lang.String) -> a
+    java.lang.String outline6(java.lang.String,int) -> a
+    java.lang.String outline7(java.lang.String,long) -> a
+    java.lang.String outline8(java.lang.String,java.lang.Object) -> a
+    java.lang.StringBuilder outline18(java.lang.String,java.lang.String) -> b
+    java.lang.String outline9(java.lang.String,java.lang.Object,java.lang.String) -> b
 com.bumptech.glide.Glide -> com.bumptech.glide.Glide:
     1:1:com.bumptech.glide.load.model.UnitModelLoader$Factory com.bumptech.glide.load.model.UnitModelLoader$Factory.getInstance():0:0 -> <init>
     1:1:void <init>(android.content.Context,com.bumptech.glide.load.engine.Engine,com.bumptech.glide.load.engine.cache.MemoryCache,com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool,com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool,com.bumptech.glide.manager.RequestManagerRetriever,com.bumptech.glide.manager.ConnectivityMonitorFactory,int,com.bumptech.glide.request.RequestOptions,java.util.Map):0 -> <init>
@@ -11496,8 +11503,9 @@ com.thb.automatic.app.AppLifecyclesImpl -> c.i.a.a.h:
 com.thb.automatic.app.Common -> c.i.a.a.i:
     android.content.Context context -> b
     com.thb.automatic.app.Common mInstance -> a
-    com.thb.automatic.app.Common getInstance() -> a
+    android.content.Context getContext() -> a
     void setContext(android.content.Context) -> a
+    com.thb.automatic.app.Common getInstance() -> b
 com.thb.automatic.app.FragmentLifecycleCallbacksImpl -> c.i.a.a.j:
     1:1:void timber.log.Timber.i(java.lang.String,java.lang.Object[]):0:0 -> onFragmentActivityCreated
     1:1:void onFragmentActivityCreated(android.support.v4.app.FragmentManager,android.support.v4.app.Fragment,android.os.Bundle):0 -> onFragmentActivityCreated
@@ -11718,6 +11726,9 @@ com.thb.automatic.home.activity.model.HomeModel_Factory -> c.i.a.b.a.b.a:
     2:2:com.thb.automatic.home.activity.model.HomeModel provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> get
     2:2:com.thb.automatic.home.activity.model.HomeModel get():0 -> get
     2:2:java.lang.Object get():0 -> get
+com.thb.automatic.home.activity.presenter.HomePresenter -> com.thb.automatic.home.activity.presenter.HomePresenter:
+    java.lang.String[] PERMISSIONS_STORAGE -> d
+    void getPermission(android.app.Activity) -> a
 com.thb.automatic.home.activity.presenter.HomePresenter_Factory -> c.i.a.b.a.c.a:
     javax.inject.Provider mApplicationProvider -> d
     javax.inject.Provider mErrorHandlerProvider -> c
@@ -11777,42 +11788,47 @@ com.thb.automatic.home.activity.view.HomeActivity -> com.thb.automatic.home.acti
     11:11:void initData(android.os.Bundle):0 -> a
     12:12:void initTab():0:0 -> a
     12:12:void initData(android.os.Bundle):0 -> a
-    13:13:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0:0 -> a
-    13:13:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
-    13:13:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder,com.thb.automatic.home.activity.DaggerHomeComponent$1):0 -> a
-    13:13:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0 -> a
-    13:13:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    14:14:com.thb.automatic.home.activity.model.HomeModel_Factory com.thb.automatic.home.activity.model.HomeModel_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
-    14:14:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
+    13:13:void initData(android.os.Bundle):0:0 -> a
+    14:14:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0:0 -> a
     14:14:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
     14:14:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder,com.thb.automatic.home.activity.DaggerHomeComponent$1):0 -> a
     14:14:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0 -> a
     14:14:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    15:15:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0:0 -> a
+    15:15:com.thb.automatic.home.activity.model.HomeModel_Factory com.thb.automatic.home.activity.model.HomeModel_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
+    15:15:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
     15:15:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
     15:15:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder,com.thb.automatic.home.activity.DaggerHomeComponent$1):0 -> a
     15:15:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0 -> a
     15:15:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    16:16:com.thb.automatic.home.activity.presenter.HomePresenter_Factory com.thb.automatic.home.activity.presenter.HomePresenter_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
-    16:16:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
+    16:16:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0:0 -> a
     16:16:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
     16:16:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder,com.thb.automatic.home.activity.DaggerHomeComponent$1):0 -> a
     16:16:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0 -> a
     16:16:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    17:17:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0:0 -> a
+    17:17:com.thb.automatic.home.activity.presenter.HomePresenter_Factory com.thb.automatic.home.activity.presenter.HomePresenter_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
+    17:17:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
     17:17:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
     17:17:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder,com.thb.automatic.home.activity.DaggerHomeComponent$1):0 -> a
     17:17:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0 -> a
     17:17:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    18:18:com.thb.automatic.home.activity.view.HomeActivity com.thb.automatic.home.activity.DaggerHomeComponent.injectHomeActivity(com.thb.automatic.home.activity.view.HomeActivity):0:0 -> a
-    18:18:void com.thb.automatic.home.activity.DaggerHomeComponent.inject(com.thb.automatic.home.activity.view.HomeActivity):0 -> a
+    18:18:void com.thb.automatic.home.activity.DaggerHomeComponent.initialize(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0:0 -> a
+    18:18:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder):0 -> a
+    18:18:void com.thb.automatic.home.activity.DaggerHomeComponent.<init>(com.thb.automatic.home.activity.DaggerHomeComponent$Builder,com.thb.automatic.home.activity.DaggerHomeComponent$1):0 -> a
+    18:18:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0 -> a
     18:18:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    19:19:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0:0 -> a
+    19:19:com.thb.automatic.home.activity.view.HomeActivity com.thb.automatic.home.activity.DaggerHomeComponent.injectHomeActivity(com.thb.automatic.home.activity.view.HomeActivity):0:0 -> a
+    19:19:void com.thb.automatic.home.activity.DaggerHomeComponent.inject(com.thb.automatic.home.activity.view.HomeActivity):0 -> a
     19:19:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    20:20:java.lang.Object dagger.internal.Preconditions.checkNotNull(java.lang.Object):0:0 -> a
-    20:20:com.thb.automatic.home.activity.DaggerHomeComponent$Builder com.thb.automatic.home.activity.DaggerHomeComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    20:20:com.thb.automatic.home.activity.HomeComponent$Builder com.thb.automatic.home.activity.DaggerHomeComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    20:20:void com.jess.arms.base.BaseActivity_MembersInjector.injectMPresenter(com.jess.arms.base.BaseActivity,com.jess.arms.mvp.IPresenter):0:0 -> a
+    20:20:com.thb.automatic.home.activity.view.HomeActivity com.thb.automatic.home.activity.DaggerHomeComponent.injectHomeActivity(com.thb.automatic.home.activity.view.HomeActivity):0 -> a
+    20:20:void com.thb.automatic.home.activity.DaggerHomeComponent.inject(com.thb.automatic.home.activity.view.HomeActivity):0 -> a
     20:20:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    21:21:com.thb.automatic.home.activity.HomeComponent com.thb.automatic.home.activity.DaggerHomeComponent$Builder.build():0:0 -> a
+    21:21:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    22:22:java.lang.Object dagger.internal.Preconditions.checkNotNull(java.lang.Object):0:0 -> a
+    22:22:com.thb.automatic.home.activity.DaggerHomeComponent$Builder com.thb.automatic.home.activity.DaggerHomeComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    22:22:com.thb.automatic.home.activity.HomeComponent$Builder com.thb.automatic.home.activity.DaggerHomeComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    22:22:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
     int initView(android.os.Bundle) -> b
     void showLoading() -> b
     1:1:android.content.res.Resources com.jess.arms.utils.ArmsUtils.getResources(android.content.Context):0:0 -> onTabChanged
@@ -11836,7 +11852,10 @@ com.thb.automatic.home.fragment.list.DaggerListComponent$com_jess_arms_di_compon
     1:1:me.jessyan.rxerrorhandler.core.RxErrorHandler get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
 com.thb.automatic.home.fragment.list.contract.ListContract$Model -> c.i.a.b.b.a.a.a:
+    io.reactivex.Observable getSinal(java.lang.String) -> a
 com.thb.automatic.home.fragment.list.contract.ListContract$View -> c.i.a.b.b.a.a.b:
+com.thb.automatic.home.fragment.list.model.ListModel -> com.thb.automatic.home.fragment.list.model.ListModel:
+    io.reactivex.Observable getSinal(java.lang.String) -> a
 com.thb.automatic.home.fragment.list.model.ListModel_Factory -> c.i.a.b.b.a.b.a:
     javax.inject.Provider repositoryManagerProvider -> a
     1:1:com.thb.automatic.home.fragment.list.model.ListModel get():0:0 -> get
@@ -11844,9 +11863,84 @@ com.thb.automatic.home.fragment.list.model.ListModel_Factory -> c.i.a.b.b.a.b.a:
     2:2:com.thb.automatic.home.fragment.list.model.ListModel provideInstance(javax.inject.Provider):0:0 -> get
     2:2:com.thb.automatic.home.fragment.list.model.ListModel get():0 -> get
     2:2:java.lang.Object get():0 -> get
+com.thb.automatic.home.fragment.list.presenter.-$$Lambda$ListPresenter$VUkembQkgE_cN3KIa32jxflTezM -> c.i.a.b.b.a.c.a:
+    com.thb.automatic.home.fragment.list.presenter.ListPresenter f$0 -> a
+com.thb.automatic.home.fragment.list.presenter.-$$Lambda$ListPresenter$jGB-i0szFbWH58AJfIsoRnS5DLI -> c.i.a.b.b.a.c.b:
+    com.thb.automatic.home.fragment.list.presenter.ListPresenter f$0 -> a
+com.thb.automatic.home.fragment.list.presenter.-$$Lambda$ListPresenter$nuz_TLn7uvuIf9Xya284Kg01qqo -> c.i.a.b.b.a.c.c:
+    com.thb.automatic.home.fragment.list.presenter.ListPresenter f$0 -> a
 com.thb.automatic.home.fragment.list.presenter.ListPresenter -> com.thb.automatic.home.fragment.list.presenter.ListPresenter:
-    void getDevices() -> d
-com.thb.automatic.home.fragment.list.presenter.ListPresenter_Factory -> c.i.a.b.b.a.c.a:
+    int mTotal -> f
+    int mEffective -> g
+    me.jessyan.rxerrorhandler.core.RxErrorHandler mErrorHandler -> d
+    double mPercent -> e
+    boolean isDoji(com.thb.automatic.home.fragment.map.entity.StockInfo) -> a
+    boolean isMatch(double,double) -> a
+    void lambda$loadSinaStock$1(io.reactivex.disposables.Disposable) -> a
+    void loadData(java.lang.String,boolean) -> a
+    void loadSinaStock(java.lang.String) -> a
+    1:1:void loadSh(java.lang.String):0:0 -> d
+    1:1:void lambda$loadData$0():0 -> d
+    2:2:void com.thb.automatic.home.fragment.list.view.ListFragment.updateView(java.lang.String):0:0 -> d
+    2:2:void loadSh(java.lang.String):0 -> d
+    2:2:void lambda$loadData$0():0 -> d
+    3:3:void loadSz(java.lang.String):0:0 -> d
+    3:3:void lambda$loadData$0():0 -> d
+    4:4:void com.thb.automatic.home.fragment.list.view.ListFragment.updateView(java.lang.String):0:0 -> d
+    4:4:void loadSz(java.lang.String):0 -> d
+    4:4:void lambda$loadData$0():0 -> d
+    void lambda$loadSinaStock$2() -> e
+com.thb.automatic.home.fragment.list.presenter.ListPresenter$1 -> c.i.a.b.b.a.c.d:
+    com.thb.automatic.home.fragment.list.presenter.ListPresenter this$0 -> a
+    1:1:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    1:1:void onResponse(java.lang.Object):0 -> a
+    2:2:int com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$008(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    2:2:void onResponse(okhttp3.ResponseBody):0 -> a
+    2:2:void onResponse(java.lang.Object):0 -> a
+    3:3:boolean com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$100(com.thb.automatic.home.fragment.list.presenter.ListPresenter,com.thb.automatic.home.fragment.map.entity.StockInfo):0:0 -> a
+    3:3:void onResponse(okhttp3.ResponseBody):0 -> a
+    3:3:void onResponse(java.lang.Object):0 -> a
+    4:4:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    4:4:void onResponse(java.lang.Object):0 -> a
+    5:5:int com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$208(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    5:5:void onResponse(okhttp3.ResponseBody):0 -> a
+    5:5:void onResponse(java.lang.Object):0 -> a
+    6:6:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    6:6:void onResponse(java.lang.Object):0 -> a
+    7:7:com.jess.arms.mvp.IView com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$300(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    7:7:void onResponse(okhttp3.ResponseBody):0 -> a
+    7:7:void onResponse(java.lang.Object):0 -> a
+    8:8:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    8:8:void onResponse(java.lang.Object):0 -> a
+    9:9:void com.thb.automatic.home.fragment.list.view.ListFragment.updateView(java.util.List):0:0 -> a
+    9:9:void onResponse(okhttp3.ResponseBody):0 -> a
+    9:9:void onResponse(java.lang.Object):0 -> a
+    10:10:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    10:10:void onResponse(java.lang.Object):0 -> a
+    11:11:com.jess.arms.mvp.IView com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$500(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    11:11:void onResponse(okhttp3.ResponseBody):0 -> a
+    11:11:void onResponse(java.lang.Object):0 -> a
+    12:12:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    12:12:void onResponse(java.lang.Object):0 -> a
+    13:13:int com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$000(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    13:13:void onResponse(okhttp3.ResponseBody):0 -> a
+    13:13:void onResponse(java.lang.Object):0 -> a
+    14:14:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    14:14:void onResponse(java.lang.Object):0 -> a
+    15:15:double com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$400(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    15:15:void onResponse(okhttp3.ResponseBody):0 -> a
+    15:15:void onResponse(java.lang.Object):0 -> a
+    16:16:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    16:16:void onResponse(java.lang.Object):0 -> a
+    17:17:int com.thb.automatic.home.fragment.list.presenter.ListPresenter.access$200(com.thb.automatic.home.fragment.list.presenter.ListPresenter):0:0 -> a
+    17:17:void onResponse(okhttp3.ResponseBody):0 -> a
+    17:17:void onResponse(java.lang.Object):0 -> a
+    18:18:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    18:18:void onResponse(java.lang.Object):0 -> a
+    19:19:void com.thb.automatic.home.fragment.list.view.ListFragment.updateView(java.lang.String):0:0 -> a
+    19:19:void onResponse(okhttp3.ResponseBody):0 -> a
+    19:19:void onResponse(java.lang.Object):0 -> a
+com.thb.automatic.home.fragment.list.presenter.ListPresenter_Factory -> c.i.a.b.b.a.c.e:
     javax.inject.Provider mErrorHandlerProvider -> c
     javax.inject.Provider viewProvider -> b
     javax.inject.Provider modelProvider -> a
@@ -11855,11 +11949,20 @@ com.thb.automatic.home.fragment.list.presenter.ListPresenter_Factory -> c.i.a.b.
     2:2:com.thb.automatic.home.fragment.list.presenter.ListPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> get
     2:2:com.thb.automatic.home.fragment.list.presenter.ListPresenter get():0 -> get
     2:2:java.lang.Object get():0 -> get
-com.thb.automatic.home.fragment.list.view.ListFragment -> c.i.a.b.b.a.d.a:
-    android.view.View mContentView -> e
+    3:3:void com.thb.automatic.home.fragment.list.presenter.ListPresenter_MembersInjector.injectMErrorHandler(com.thb.automatic.home.fragment.list.presenter.ListPresenter,me.jessyan.rxerrorhandler.core.RxErrorHandler):0:0 -> get
+    3:3:com.thb.automatic.home.fragment.list.presenter.ListPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0 -> get
+    3:3:com.thb.automatic.home.fragment.list.presenter.ListPresenter get():0 -> get
+    3:3:java.lang.Object get():0 -> get
+com.thb.automatic.home.fragment.list.view.-$$Lambda$ListFragment$obgNO71VxPXc0t7n2avKbc3vGCE -> c.i.a.b.b.a.d.a:
+    com.thb.automatic.home.fragment.list.view.-$$Lambda$ListFragment$obgNO71VxPXc0t7n2avKbc3vGCE INSTANCE -> a
+com.thb.automatic.home.fragment.list.view.ListFragment -> com.thb.automatic.home.fragment.list.view.ListFragment:
+    java.util.List mData -> c
+    android.view.View mContentView -> a
+    com.thb.automatic.home.fragment.map.view.ViewAdapter mAdapter -> b
     void hideLoading() -> a
     void initData(android.os.Bundle) -> a
     android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    int lambda$updateView$0(com.thb.automatic.home.fragment.map.entity.StockInfo,com.thb.automatic.home.fragment.map.entity.StockInfo) -> a
     1:1:void com.thb.automatic.home.fragment.list.DaggerListComponent.initialize(com.thb.automatic.home.fragment.list.DaggerListComponent$Builder):0:0 -> a
     1:1:void com.thb.automatic.home.fragment.list.DaggerListComponent.<init>(com.thb.automatic.home.fragment.list.DaggerListComponent$Builder):0 -> a
     1:1:void com.thb.automatic.home.fragment.list.DaggerListComponent.<init>(com.thb.automatic.home.fragment.list.DaggerListComponent$Builder,com.thb.automatic.home.fragment.list.DaggerListComponent$1):0 -> a
@@ -11901,6 +12004,8 @@ com.thb.automatic.home.fragment.list.view.ListFragment -> c.i.a.b.b.a.d.a:
     9:9:com.thb.automatic.home.fragment.list.ListComponent$Builder com.thb.automatic.home.fragment.list.DaggerListComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
     9:9:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
     void showLoading() -> b
+com.thb.automatic.home.fragment.list.view.ListFragment_ViewBinding -> com.thb.automatic.home.fragment.list.view.ListFragment_ViewBinding:
+    com.thb.automatic.home.fragment.list.view.ListFragment target -> a
 com.thb.automatic.home.fragment.map.DaggerMapComponent$com_jess_arms_di_component_AppComponent_application -> c.i.a.b.b.b.a:
     com.jess.arms.di.component.AppComponent appComponent -> a
     1:1:android.app.Application get():0:0 -> get
@@ -11918,23 +12023,9 @@ com.thb.automatic.home.fragment.map.DaggerMapComponent$com_jess_arms_di_componen
     com.jess.arms.di.component.AppComponent appComponent -> a
     1:1:me.jessyan.rxerrorhandler.core.RxErrorHandler get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
-com.thb.automatic.home.fragment.map.MapModule_ProvideTempDataListFactory -> c.i.a.b.b.b.d:
-    com.thb.automatic.home.fragment.map.MapModule_ProvideTempDataListFactory INSTANCE -> a
-    1:1:java.util.List com.thb.automatic.home.fragment.map.MapModule.provideTempDataList():0:0 -> get
-    1:1:java.util.List proxyProvideTempDataList():0 -> get
-    1:1:java.util.List provideInstance():0 -> get
-    1:1:java.util.List get():0 -> get
-    1:1:java.lang.Object get():0 -> get
-    2:2:java.util.List proxyProvideTempDataList():0:0 -> get
-    2:2:java.util.List provideInstance():0 -> get
-    2:2:java.util.List get():0 -> get
-    2:2:java.lang.Object get():0 -> get
 com.thb.automatic.home.fragment.map.contract.MapContract$Model -> c.i.a.b.b.b.a.a:
     io.reactivex.Observable getSinal(java.lang.String) -> a
 com.thb.automatic.home.fragment.map.contract.MapContract$View -> c.i.a.b.b.b.a.b:
-com.thb.automatic.home.fragment.map.entity.SinaStockInfo$BuyOrSellInfo -> com.thb.automatic.home.fragment.map.entity.SinaStockInfo$a:
-    long mCount -> a
-    float mPrice -> b
 com.thb.automatic.home.fragment.map.model.MapModel -> com.thb.automatic.home.fragment.map.model.MapModel:
     io.reactivex.Observable getSinal(java.lang.String) -> a
 com.thb.automatic.home.fragment.map.model.MapModel_Factory -> c.i.a.b.b.b.b.a:
@@ -11944,51 +12035,110 @@ com.thb.automatic.home.fragment.map.model.MapModel_Factory -> c.i.a.b.b.b.b.a:
     2:2:com.thb.automatic.home.fragment.map.model.MapModel provideInstance(javax.inject.Provider):0:0 -> get
     2:2:com.thb.automatic.home.fragment.map.model.MapModel get():0 -> get
     2:2:java.lang.Object get():0 -> get
-com.thb.automatic.home.fragment.map.presenter.-$$Lambda$MapPresenter$o6ZKxvlgTdVPgLgO0fhHEQX_EeY -> c.i.a.b.b.b.c.a:
+com.thb.automatic.home.fragment.map.presenter.-$$Lambda$MapPresenter$J-LdnYFopGhERPeVcDsV8v6dFfo -> c.i.a.b.b.b.c.a:
     com.thb.automatic.home.fragment.map.presenter.MapPresenter f$0 -> a
-com.thb.automatic.home.fragment.map.presenter.-$$Lambda$MapPresenter$ow8mpGnObrx79kfS-yP707aT3Sk -> c.i.a.b.b.b.c.b:
+com.thb.automatic.home.fragment.map.presenter.-$$Lambda$MapPresenter$rCstdaJhihGZSSQlS5H_0cEMtnU -> c.i.a.b.b.b.c.b:
+    com.thb.automatic.home.fragment.map.presenter.MapPresenter f$0 -> a
+com.thb.automatic.home.fragment.map.presenter.-$$Lambda$MapPresenter$waW3Fp3PbTfCswIBiPC0rkHyiPY -> c.i.a.b.b.b.c.c:
     com.thb.automatic.home.fragment.map.presenter.MapPresenter f$0 -> a
 com.thb.automatic.home.fragment.map.presenter.MapPresenter -> com.thb.automatic.home.fragment.map.presenter.MapPresenter:
+    int mEffective -> h
+    boolean mIsNoTopLine -> f
+    int mTotal -> g
     me.jessyan.rxerrorhandler.core.RxErrorHandler mErrorHandler -> d
-    void lambda$testSina$0(io.reactivex.disposables.Disposable) -> a
-    void lambda$testSina$1() -> d
-    void testSina() -> e
-com.thb.automatic.home.fragment.map.presenter.MapPresenter$1 -> c.i.a.b.b.b.c.c:
+    double mPercent -> e
+    void lambda$loadSinaStock$1(io.reactivex.disposables.Disposable) -> a
+    void loadData(java.lang.String,boolean) -> a
+    void loadSinaStock(java.lang.String) -> a
+    boolean shouldAdd(com.thb.automatic.home.fragment.map.entity.StockInfo) -> a
+    1:1:void loadSh(java.lang.String):0:0 -> d
+    1:1:void lambda$loadData$0():0 -> d
+    2:2:void com.thb.automatic.home.fragment.map.view.MapFragment.updateView(java.lang.String):0:0 -> d
+    2:2:void loadSh(java.lang.String):0 -> d
+    2:2:void lambda$loadData$0():0 -> d
+    3:3:void loadSz(java.lang.String):0:0 -> d
+    3:3:void lambda$loadData$0():0 -> d
+    4:4:void com.thb.automatic.home.fragment.map.view.MapFragment.updateView(java.lang.String):0:0 -> d
+    4:4:void loadSz(java.lang.String):0 -> d
+    4:4:void lambda$loadData$0():0 -> d
+    void lambda$loadSinaStock$2() -> e
+com.thb.automatic.home.fragment.map.presenter.MapPresenter$1 -> c.i.a.b.b.b.c.d:
+    com.thb.automatic.home.fragment.map.presenter.MapPresenter this$0 -> a
     1:1:void onResponse(okhttp3.ResponseBody):0:0 -> a
     1:1:void onResponse(java.lang.Object):0 -> a
-    2:2:java.util.List com.thb.automatic.app.utils.Utils.pares2Stock(java.io.InputStream):0:0 -> a
+    2:2:int com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$008(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
     2:2:void onResponse(okhttp3.ResponseBody):0 -> a
     2:2:void onResponse(java.lang.Object):0 -> a
-    3:3:java.util.List com.thb.automatic.app.utils.Utils.parseSinaStockInfosFromReader(java.io.BufferedReader):0:0 -> a
-    3:3:java.util.List com.thb.automatic.app.utils.Utils.pares2Stock(java.io.InputStream):0 -> a
+    3:3:boolean com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$100(com.thb.automatic.home.fragment.map.presenter.MapPresenter,com.thb.automatic.home.fragment.map.entity.StockInfo):0:0 -> a
     3:3:void onResponse(okhttp3.ResponseBody):0 -> a
     3:3:void onResponse(java.lang.Object):0 -> a
-    4:4:java.util.List com.thb.automatic.app.utils.Utils.pares2Stock(java.io.InputStream):0:0 -> a
-    4:4:void onResponse(okhttp3.ResponseBody):0 -> a
+    4:4:void onResponse(okhttp3.ResponseBody):0:0 -> a
     4:4:void onResponse(java.lang.Object):0 -> a
-    5:5:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    5:5:int com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$208(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
+    5:5:void onResponse(okhttp3.ResponseBody):0 -> a
     5:5:void onResponse(java.lang.Object):0 -> a
-com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory -> c.i.a.b.b.b.c.d:
-    javax.inject.Provider mApplicationProvider -> d
-    javax.inject.Provider tempDataProvider -> c
-    javax.inject.Provider mErrorHandlerProvider -> e
+    6:6:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    6:6:void onResponse(java.lang.Object):0 -> a
+    7:7:com.jess.arms.mvp.IView com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$300(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
+    7:7:void onResponse(okhttp3.ResponseBody):0 -> a
+    7:7:void onResponse(java.lang.Object):0 -> a
+    8:8:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    8:8:void onResponse(java.lang.Object):0 -> a
+    9:9:void com.thb.automatic.home.fragment.map.view.MapFragment.updateView(java.util.List):0:0 -> a
+    9:9:void onResponse(okhttp3.ResponseBody):0 -> a
+    9:9:void onResponse(java.lang.Object):0 -> a
+    10:10:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    10:10:void onResponse(java.lang.Object):0 -> a
+    11:11:com.jess.arms.mvp.IView com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$500(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
+    11:11:void onResponse(okhttp3.ResponseBody):0 -> a
+    11:11:void onResponse(java.lang.Object):0 -> a
+    12:12:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    12:12:void onResponse(java.lang.Object):0 -> a
+    13:13:int com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$000(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
+    13:13:void onResponse(okhttp3.ResponseBody):0 -> a
+    13:13:void onResponse(java.lang.Object):0 -> a
+    14:14:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    14:14:void onResponse(java.lang.Object):0 -> a
+    15:15:double com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$400(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
+    15:15:void onResponse(okhttp3.ResponseBody):0 -> a
+    15:15:void onResponse(java.lang.Object):0 -> a
+    16:16:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    16:16:void onResponse(java.lang.Object):0 -> a
+    17:17:int com.thb.automatic.home.fragment.map.presenter.MapPresenter.access$200(com.thb.automatic.home.fragment.map.presenter.MapPresenter):0:0 -> a
+    17:17:void onResponse(okhttp3.ResponseBody):0 -> a
+    17:17:void onResponse(java.lang.Object):0 -> a
+    18:18:void onResponse(okhttp3.ResponseBody):0:0 -> a
+    18:18:void onResponse(java.lang.Object):0 -> a
+    19:19:void com.thb.automatic.home.fragment.map.view.MapFragment.updateView(java.lang.String):0:0 -> a
+    19:19:void onResponse(okhttp3.ResponseBody):0 -> a
+    19:19:void onResponse(java.lang.Object):0 -> a
+com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory -> c.i.a.b.b.b.c.e:
+    javax.inject.Provider mErrorHandlerProvider -> d
+    javax.inject.Provider mApplicationProvider -> c
     javax.inject.Provider viewProvider -> b
     javax.inject.Provider modelProvider -> a
     1:1:com.thb.automatic.home.fragment.map.presenter.MapPresenter get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
-    2:2:com.thb.automatic.home.fragment.map.presenter.MapPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> get
+    2:2:com.thb.automatic.home.fragment.map.presenter.MapPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> get
     2:2:com.thb.automatic.home.fragment.map.presenter.MapPresenter get():0 -> get
     2:2:java.lang.Object get():0 -> get
     3:3:void com.thb.automatic.home.fragment.map.presenter.MapPresenter_MembersInjector.injectMErrorHandler(com.thb.automatic.home.fragment.map.presenter.MapPresenter,me.jessyan.rxerrorhandler.core.RxErrorHandler):0:0 -> get
-    3:3:com.thb.automatic.home.fragment.map.presenter.MapPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0 -> get
+    3:3:com.thb.automatic.home.fragment.map.presenter.MapPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0 -> get
     3:3:com.thb.automatic.home.fragment.map.presenter.MapPresenter get():0 -> get
     3:3:java.lang.Object get():0 -> get
-com.thb.automatic.home.fragment.map.view.MapFragment -> c.i.a.b.b.b.d.b:
-    android.view.View mContentView -> e
-    com.jess.arms.mvp.IPresenter access$000(com.thb.automatic.home.fragment.map.view.MapFragment) -> a
+com.thb.automatic.home.fragment.map.view.-$$Lambda$MapFragment$UIyeS5iBgp98g4G_i7qzLiuHMMg -> c.i.a.b.b.b.d.a:
+    com.thb.automatic.home.fragment.map.view.-$$Lambda$MapFragment$UIyeS5iBgp98g4G_i7qzLiuHMMg INSTANCE -> a
+com.thb.automatic.home.fragment.map.view.-$$Lambda$ViewAdapter$qQ8v5c8FuL8QKDU_zRAF9YD91xE -> c.i.a.b.b.b.d.b:
+    com.thb.automatic.home.fragment.map.entity.StockInfo f$0 -> a
+com.thb.automatic.home.fragment.map.view.MapFragment -> com.thb.automatic.home.fragment.map.view.MapFragment:
+    java.util.List mData -> c
+    android.view.View mContentView -> a
+    com.thb.automatic.home.fragment.map.view.ViewAdapter mAdapter -> b
+    java.util.List access$000(com.thb.automatic.home.fragment.map.view.MapFragment) -> a
     void hideLoading() -> a
     void initData(android.os.Bundle) -> a
     android.view.View initView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    int lambda$updateView$0(com.thb.automatic.home.fragment.map.entity.StockInfo,com.thb.automatic.home.fragment.map.entity.StockInfo) -> a
     1:1:void com.thb.automatic.home.fragment.map.DaggerMapComponent.initialize(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0:0 -> a
     1:1:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0 -> a
     1:1:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder,com.thb.automatic.home.fragment.map.DaggerMapComponent$1):0 -> a
@@ -12005,7 +12155,7 @@ com.thb.automatic.home.fragment.map.view.MapFragment -> c.i.a.b.b.b.d.b:
     3:3:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder,com.thb.automatic.home.fragment.map.DaggerMapComponent$1):0 -> a
     3:3:com.thb.automatic.home.fragment.map.MapComponent com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.build():0 -> a
     3:3:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    4:4:com.thb.automatic.home.fragment.map.MapModule_ProvideTempDataListFactory com.thb.automatic.home.fragment.map.MapModule_ProvideTempDataListFactory.create():0:0 -> a
+    4:4:com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
     4:4:void com.thb.automatic.home.fragment.map.DaggerMapComponent.initialize(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0 -> a
     4:4:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0 -> a
     4:4:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder,com.thb.automatic.home.fragment.map.DaggerMapComponent$1):0 -> a
@@ -12016,33 +12166,41 @@ com.thb.automatic.home.fragment.map.view.MapFragment -> c.i.a.b.b.b.d.b:
     5:5:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder,com.thb.automatic.home.fragment.map.DaggerMapComponent$1):0 -> a
     5:5:com.thb.automatic.home.fragment.map.MapComponent com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.build():0 -> a
     5:5:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    6:6:com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory com.thb.automatic.home.fragment.map.presenter.MapPresenter_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
-    6:6:void com.thb.automatic.home.fragment.map.DaggerMapComponent.initialize(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0 -> a
-    6:6:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0 -> a
-    6:6:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder,com.thb.automatic.home.fragment.map.DaggerMapComponent$1):0 -> a
-    6:6:com.thb.automatic.home.fragment.map.MapComponent com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.build():0 -> a
+    6:6:com.thb.automatic.home.fragment.map.view.MapFragment com.thb.automatic.home.fragment.map.DaggerMapComponent.injectMapFragment(com.thb.automatic.home.fragment.map.view.MapFragment):0:0 -> a
+    6:6:void com.thb.automatic.home.fragment.map.DaggerMapComponent.inject(com.thb.automatic.home.fragment.map.view.MapFragment):0 -> a
     6:6:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    7:7:void com.thb.automatic.home.fragment.map.DaggerMapComponent.initialize(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0:0 -> a
-    7:7:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder):0 -> a
-    7:7:void com.thb.automatic.home.fragment.map.DaggerMapComponent.<init>(com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder,com.thb.automatic.home.fragment.map.DaggerMapComponent$1):0 -> a
-    7:7:com.thb.automatic.home.fragment.map.MapComponent com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.build():0 -> a
+    7:7:void com.jess.arms.base.BaseFragment_MembersInjector.injectMPresenter(com.jess.arms.base.BaseFragment,com.jess.arms.mvp.IPresenter):0:0 -> a
+    7:7:com.thb.automatic.home.fragment.map.view.MapFragment com.thb.automatic.home.fragment.map.DaggerMapComponent.injectMapFragment(com.thb.automatic.home.fragment.map.view.MapFragment):0 -> a
+    7:7:void com.thb.automatic.home.fragment.map.DaggerMapComponent.inject(com.thb.automatic.home.fragment.map.view.MapFragment):0 -> a
     7:7:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    8:8:com.thb.automatic.home.fragment.map.view.MapFragment com.thb.automatic.home.fragment.map.DaggerMapComponent.injectMapFragment(com.thb.automatic.home.fragment.map.view.MapFragment):0:0 -> a
-    8:8:void com.thb.automatic.home.fragment.map.DaggerMapComponent.inject(com.thb.automatic.home.fragment.map.view.MapFragment):0 -> a
+    8:8:com.thb.automatic.home.fragment.map.MapComponent com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.build():0:0 -> a
     8:8:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    9:9:void com.jess.arms.base.BaseFragment_MembersInjector.injectMPresenter(com.jess.arms.base.BaseFragment,com.jess.arms.mvp.IPresenter):0:0 -> a
-    9:9:com.thb.automatic.home.fragment.map.view.MapFragment com.thb.automatic.home.fragment.map.DaggerMapComponent.injectMapFragment(com.thb.automatic.home.fragment.map.view.MapFragment):0 -> a
-    9:9:void com.thb.automatic.home.fragment.map.DaggerMapComponent.inject(com.thb.automatic.home.fragment.map.view.MapFragment):0 -> a
+    9:9:java.lang.Object dagger.internal.Preconditions.checkNotNull(java.lang.Object):0:0 -> a
+    9:9:com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    9:9:com.thb.automatic.home.fragment.map.MapComponent$Builder com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
     9:9:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    10:10:com.thb.automatic.home.fragment.map.MapComponent com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.build():0:0 -> a
-    10:10:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    11:11:java.lang.Object dagger.internal.Preconditions.checkNotNull(java.lang.Object):0:0 -> a
-    11:11:com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    11:11:com.thb.automatic.home.fragment.map.MapComponent$Builder com.thb.automatic.home.fragment.map.DaggerMapComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    11:11:void setupFragmentComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    com.jess.arms.mvp.IPresenter access$100(com.thb.automatic.home.fragment.map.view.MapFragment) -> b
     void showLoading() -> b
-com.thb.automatic.home.fragment.map.view.MapFragment$1 -> c.i.a.b.b.b.d.a:
+com.thb.automatic.home.fragment.map.view.MapFragment$1 -> c.i.a.b.b.b.d.c:
     com.thb.automatic.home.fragment.map.view.MapFragment this$0 -> a
+    1:1:void com.thb.automatic.app.utils.Utils.hideSoftKeyboard(android.view.View):0:0 -> onClick
+    1:1:void onClick(android.view.View):0 -> onClick
+com.thb.automatic.home.fragment.map.view.MapFragment_ViewBinding -> com.thb.automatic.home.fragment.map.view.MapFragment_ViewBinding:
+    com.thb.automatic.home.fragment.map.view.MapFragment target -> a
+com.thb.automatic.home.fragment.map.view.ViewAdapter -> c.i.a.b.b.b.d.d:
+    android.content.Context mContext -> a
+    java.util.List mData -> b
+    java.text.DecimalFormat df -> c
+    void lambda$onBindViewHolder$0(com.thb.automatic.home.fragment.map.entity.StockInfo,android.view.View) -> a
+    1:1:void onBindViewHolder(com.thb.automatic.home.fragment.map.view.ViewAdapter$CustomHolder,int):0:0 -> onBindViewHolder
+    1:1:void onBindViewHolder(android.support.v7.widget.RecyclerView$ViewHolder,int):0 -> onBindViewHolder
+    1:1:com.thb.automatic.home.fragment.map.view.ViewAdapter$CustomHolder onCreateViewHolder(android.view.ViewGroup,int):0:0 -> onCreateViewHolder
+    1:1:android.support.v7.widget.RecyclerView$ViewHolder onCreateViewHolder(android.view.ViewGroup,int):0 -> onCreateViewHolder
+com.thb.automatic.home.fragment.map.view.ViewAdapter$CustomHolder -> c.i.a.b.b.b.d.d$a:
+    android.widget.TextView text -> a
+    android.widget.TextView price -> b
+    android.widget.TextView access$000(com.thb.automatic.home.fragment.map.view.ViewAdapter$CustomHolder) -> a
+    android.widget.TextView access$100(com.thb.automatic.home.fragment.map.view.ViewAdapter$CustomHolder) -> b
 com.thb.automatic.home.fragment.mine.DaggerMineComponent$com_jess_arms_di_component_AppComponent_application -> c.i.a.b.b.c.a:
     com.jess.arms.di.component.AppComponent appComponent -> a
     1:1:android.app.Application get():0:0 -> get
@@ -12182,7 +12340,7 @@ com.thb.automatic.home.fragment.mine.view.ViewAdapter$CustomHolder -> c.i.a.b.b.
     android.widget.ImageView icon -> a
     android.widget.TextView access$000(com.thb.automatic.home.fragment.mine.view.ViewAdapter$CustomHolder) -> a
     android.widget.ImageView access$100(com.thb.automatic.home.fragment.mine.view.ViewAdapter$CustomHolder) -> b
-com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$com_jess_arms_di_component_AppComponent_application -> c.i.a.c.a.a:
+com.thb.automatic.modue.kline.DaggerKLineComponent$com_jess_arms_di_component_AppComponent_application -> c.i.a.c.a.a:
     com.jess.arms.di.component.AppComponent appComponent -> a
     1:1:android.app.Application get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
@@ -12191,94 +12349,279 @@ com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$com_jess_arms_di_componen
     2:2:java.lang.Object get():0 -> get
     3:3:android.app.Application get():0:0 -> get
     3:3:java.lang.Object get():0 -> get
-com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$com_jess_arms_di_component_AppComponent_repositoryManager -> c.i.a.c.a.b:
+com.thb.automatic.modue.kline.DaggerKLineComponent$com_jess_arms_di_component_AppComponent_repositoryManager -> c.i.a.c.a.b:
     com.jess.arms.di.component.AppComponent appComponent -> a
     1:1:com.jess.arms.integration.IRepositoryManager get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
-com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$com_jess_arms_di_component_AppComponent_rxErrorHandler -> c.i.a.c.a.c:
+com.thb.automatic.modue.kline.contract.KLineContract$Model -> c.i.a.c.a.a.a:
+com.thb.automatic.modue.kline.contract.KLineContract$View -> c.i.a.c.a.a.b:
+com.thb.automatic.modue.kline.model.KLineModel -> com.thb.automatic.modue.kline.model.KLineModel:
+    1:1:void com.jess.arms.mvp.BaseModel.onDestroy():0:0 -> onDestroy
+    1:1:void onDestroy():0 -> onDestroy
+com.thb.automatic.modue.kline.model.KLineModel_Factory -> c.i.a.c.a.b.a:
+    javax.inject.Provider mAppProvider -> b
+    javax.inject.Provider repositoryManagerProvider -> a
+    1:1:com.thb.automatic.modue.kline.model.KLineModel get():0:0 -> get
+    1:1:java.lang.Object get():0 -> get
+    2:2:com.thb.automatic.modue.kline.model.KLineModel provideInstance(javax.inject.Provider,javax.inject.Provider):0:0 -> get
+    2:2:com.thb.automatic.modue.kline.model.KLineModel get():0 -> get
+    2:2:java.lang.Object get():0 -> get
+com.thb.automatic.modue.kline.presenter.KLinePresenter_Factory -> c.i.a.c.a.c.a:
+    javax.inject.Provider rootViewProvider -> b
+    javax.inject.Provider modelProvider -> a
+    1:1:com.thb.automatic.modue.kline.presenter.KLinePresenter get():0:0 -> get
+    1:1:java.lang.Object get():0 -> get
+    2:2:com.thb.automatic.modue.kline.presenter.KLinePresenter provideInstance(javax.inject.Provider,javax.inject.Provider):0:0 -> get
+    2:2:com.thb.automatic.modue.kline.presenter.KLinePresenter get():0 -> get
+    2:2:java.lang.Object get():0 -> get
+com.thb.automatic.modue.kline.view.KLineActivity -> com.thb.automatic.modue.kline.view.KLineActivity:
+    java.lang.String mStockSymbol -> a
+    java.lang.String mStockName -> b
+    void hideLoading() -> a
+    void initData(android.os.Bundle) -> a
+    1:1:void com.thb.automatic.modue.kline.DaggerKLineComponent.initialize(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0:0 -> a
+    1:1:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    1:1:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder,com.thb.automatic.modue.kline.DaggerKLineComponent$1):0 -> a
+    1:1:com.thb.automatic.modue.kline.KLineComponent com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.build():0 -> a
+    1:1:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    2:2:com.thb.automatic.modue.kline.model.KLineModel_Factory com.thb.automatic.modue.kline.model.KLineModel_Factory.create(javax.inject.Provider,javax.inject.Provider):0:0 -> a
+    2:2:void com.thb.automatic.modue.kline.DaggerKLineComponent.initialize(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    2:2:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    2:2:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder,com.thb.automatic.modue.kline.DaggerKLineComponent$1):0 -> a
+    2:2:com.thb.automatic.modue.kline.KLineComponent com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.build():0 -> a
+    2:2:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    3:3:void com.thb.automatic.modue.kline.DaggerKLineComponent.initialize(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0:0 -> a
+    3:3:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    3:3:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder,com.thb.automatic.modue.kline.DaggerKLineComponent$1):0 -> a
+    3:3:com.thb.automatic.modue.kline.KLineComponent com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.build():0 -> a
+    3:3:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    4:4:com.thb.automatic.modue.kline.presenter.KLinePresenter_Factory com.thb.automatic.modue.kline.presenter.KLinePresenter_Factory.create(javax.inject.Provider,javax.inject.Provider):0:0 -> a
+    4:4:void com.thb.automatic.modue.kline.DaggerKLineComponent.initialize(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    4:4:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    4:4:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder,com.thb.automatic.modue.kline.DaggerKLineComponent$1):0 -> a
+    4:4:com.thb.automatic.modue.kline.KLineComponent com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.build():0 -> a
+    4:4:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    5:5:void com.thb.automatic.modue.kline.DaggerKLineComponent.initialize(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0:0 -> a
+    5:5:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder):0 -> a
+    5:5:void com.thb.automatic.modue.kline.DaggerKLineComponent.<init>(com.thb.automatic.modue.kline.DaggerKLineComponent$Builder,com.thb.automatic.modue.kline.DaggerKLineComponent$1):0 -> a
+    5:5:com.thb.automatic.modue.kline.KLineComponent com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.build():0 -> a
+    5:5:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    6:6:com.thb.automatic.modue.kline.view.KLineActivity com.thb.automatic.modue.kline.DaggerKLineComponent.injectKLineActivity(com.thb.automatic.modue.kline.view.KLineActivity):0:0 -> a
+    6:6:void com.thb.automatic.modue.kline.DaggerKLineComponent.inject(com.thb.automatic.modue.kline.view.KLineActivity):0 -> a
+    6:6:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    7:7:void com.jess.arms.base.BaseActivity_MembersInjector.injectMPresenter(com.jess.arms.base.BaseActivity,com.jess.arms.mvp.IPresenter):0:0 -> a
+    7:7:com.thb.automatic.modue.kline.view.KLineActivity com.thb.automatic.modue.kline.DaggerKLineComponent.injectKLineActivity(com.thb.automatic.modue.kline.view.KLineActivity):0 -> a
+    7:7:void com.thb.automatic.modue.kline.DaggerKLineComponent.inject(com.thb.automatic.modue.kline.view.KLineActivity):0 -> a
+    7:7:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    8:8:com.thb.automatic.modue.kline.KLineComponent com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.build():0:0 -> a
+    8:8:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    9:9:java.lang.Object dagger.internal.Preconditions.checkNotNull(java.lang.Object):0:0 -> a
+    9:9:com.thb.automatic.modue.kline.DaggerKLineComponent$Builder com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    9:9:com.thb.automatic.modue.kline.KLineComponent$Builder com.thb.automatic.modue.kline.DaggerKLineComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    9:9:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    int initView(android.os.Bundle) -> b
+    void showLoading() -> b
+com.thb.automatic.modue.kline.view.KLineActivity_ViewBinding -> com.thb.automatic.modue.kline.view.KLineActivity_ViewBinding:
+    com.thb.automatic.modue.kline.view.KLineActivity target -> a
+com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$com_jess_arms_di_component_AppComponent_application -> c.i.a.c.b.a:
+    com.jess.arms.di.component.AppComponent appComponent -> a
+    1:1:android.app.Application get():0:0 -> get
+    1:1:java.lang.Object get():0 -> get
+    2:2:android.app.Application com.jess.arms.di.component.DaggerAppComponent.application():0:0 -> get
+    2:2:android.app.Application get():0 -> get
+    2:2:java.lang.Object get():0 -> get
+    3:3:android.app.Application get():0:0 -> get
+    3:3:java.lang.Object get():0 -> get
+com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$com_jess_arms_di_component_AppComponent_repositoryManager -> c.i.a.c.b.b:
+    com.jess.arms.di.component.AppComponent appComponent -> a
+    1:1:com.jess.arms.integration.IRepositoryManager get():0:0 -> get
+    1:1:java.lang.Object get():0 -> get
+com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$com_jess_arms_di_component_AppComponent_rxErrorHandler -> c.i.a.c.b.c:
     com.jess.arms.di.component.AppComponent appComponent -> a
     1:1:me.jessyan.rxerrorhandler.core.RxErrorHandler get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
-com.thb.automatic.modue.aboutus.contract.AboutUsContract$Model -> c.i.a.c.a.a.a:
-com.thb.automatic.modue.aboutus.contract.AboutUsContract$View -> c.i.a.c.a.a.b:
-com.thb.automatic.modue.aboutus.model.AboutUsModel -> com.thb.automatic.modue.aboutus.model.AboutUsModel:
+com.thb.automatic.modue.loadstock.contract.LoadStockContract$Model -> c.i.a.c.b.a.a:
+    io.reactivex.Observable getSHAll(int) -> a
+    io.reactivex.Observable getSZAll(int) -> b
+com.thb.automatic.modue.loadstock.contract.LoadStockContract$View -> c.i.a.c.b.a.b:
+    void updateView(java.lang.String) -> a
+com.thb.automatic.modue.loadstock.model.LoadStockModel -> com.thb.automatic.modue.loadstock.model.LoadStockModel:
+    io.reactivex.Observable getSHAll(int) -> a
+    io.reactivex.Observable getSZAll(int) -> b
     1:1:void com.jess.arms.mvp.BaseModel.onDestroy():0:0 -> onDestroy
     1:1:void onDestroy():0 -> onDestroy
-com.thb.automatic.modue.aboutus.model.AboutUsModel_Factory -> c.i.a.c.a.b.a:
+com.thb.automatic.modue.loadstock.model.LoadStockModel_Factory -> c.i.a.c.b.b.a:
     javax.inject.Provider mAppProvider -> b
     javax.inject.Provider repositoryManagerProvider -> a
-    1:1:com.thb.automatic.modue.aboutus.model.AboutUsModel get():0:0 -> get
+    1:1:com.thb.automatic.modue.loadstock.model.LoadStockModel get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
-    2:2:com.thb.automatic.modue.aboutus.model.AboutUsModel provideInstance(javax.inject.Provider,javax.inject.Provider):0:0 -> get
-    2:2:com.thb.automatic.modue.aboutus.model.AboutUsModel get():0 -> get
+    2:2:com.thb.automatic.modue.loadstock.model.LoadStockModel provideInstance(javax.inject.Provider,javax.inject.Provider):0:0 -> get
+    2:2:com.thb.automatic.modue.loadstock.model.LoadStockModel get():0 -> get
     2:2:java.lang.Object get():0 -> get
-com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter_Factory -> c.i.a.c.a.c.a:
+com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter -> com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter:
+    java.lang.String mShangHaiTxt -> g
+    java.lang.String mShenZhenTxt -> f
+    java.io.File mSzFile -> d
+    int sh_page -> j
+    java.io.File mShFile -> e
+    int sz_page -> i
+    android.os.Handler mHandler -> k
+    me.jessyan.rxerrorhandler.core.RxErrorHandler mErrorHandler -> h
+    int access$300(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter) -> a
+    void write2Sh(java.lang.String) -> a
+    java.lang.String access$400(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter) -> b
+    void write2Sz(java.lang.String) -> b
+    java.lang.String access$500(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter) -> c
+    int access$800(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter) -> d
+    void getSH() -> d
+    void getSZ() -> e
+    void loadStock() -> f
+com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter$1 -> c.i.a.c.b.c.a:
+    com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter this$0 -> a
+    1:1:void com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$000(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter,java.lang.String):0:0 -> handleMessage
+    1:1:void handleMessage(android.os.Message):0 -> handleMessage
+    2:2:void handleMessage(android.os.Message):0:0 -> handleMessage
+    3:3:void com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$100(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter,java.lang.String):0:0 -> handleMessage
+    3:3:void handleMessage(android.os.Message):0 -> handleMessage
+com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter$2 -> c.i.a.c.b.c.b:
+    com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter this$0 -> a
+    1:1:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    1:1:void onResponse(java.lang.Object):0 -> a
+    2:2:android.os.Handler com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$200(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    2:2:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    2:2:void onResponse(java.lang.Object):0 -> a
+    3:3:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    3:3:void onResponse(java.lang.Object):0 -> a
+    4:4:android.os.Handler com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$200(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    4:4:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    4:4:void onResponse(java.lang.Object):0 -> a
+    5:5:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    5:5:void onResponse(java.lang.Object):0 -> a
+    6:6:int com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$308(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    6:6:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    6:6:void onResponse(java.lang.Object):0 -> a
+    7:7:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    7:7:void onResponse(java.lang.Object):0 -> a
+    8:8:java.lang.String com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$402(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter,java.lang.String):0:0 -> a
+    8:8:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    8:8:void onResponse(java.lang.Object):0 -> a
+    9:9:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    9:9:void onResponse(java.lang.Object):0 -> a
+    10:10:com.jess.arms.mvp.IView com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$600(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    10:10:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    10:10:void onResponse(java.lang.Object):0 -> a
+    11:11:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    11:11:void onResponse(java.lang.Object):0 -> a
+    12:12:void com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$700(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    12:12:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    12:12:void onResponse(java.lang.Object):0 -> a
+com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter$3 -> c.i.a.c.b.c.c:
+    com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter this$0 -> a
+    1:1:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    1:1:void onResponse(java.lang.Object):0 -> a
+    2:2:android.os.Handler com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$200(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    2:2:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    2:2:void onResponse(java.lang.Object):0 -> a
+    3:3:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    3:3:void onResponse(java.lang.Object):0 -> a
+    4:4:android.os.Handler com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$200(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    4:4:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    4:4:void onResponse(java.lang.Object):0 -> a
+    5:5:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    5:5:void onResponse(java.lang.Object):0 -> a
+    6:6:int com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$808(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    6:6:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    6:6:void onResponse(java.lang.Object):0 -> a
+    7:7:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    7:7:void onResponse(java.lang.Object):0 -> a
+    8:8:java.lang.String com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$502(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter,java.lang.String):0:0 -> a
+    8:8:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    8:8:void onResponse(java.lang.Object):0 -> a
+    9:9:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    9:9:void onResponse(java.lang.Object):0 -> a
+    10:10:com.jess.arms.mvp.IView com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$900(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    10:10:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    10:10:void onResponse(java.lang.Object):0 -> a
+    11:11:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0:0 -> a
+    11:11:void onResponse(java.lang.Object):0 -> a
+    12:12:void com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter.access$1000(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter):0:0 -> a
+    12:12:void onResponse(com.thb.automatic.modue.loadstock.entity.JuHeInfo):0 -> a
+    12:12:void onResponse(java.lang.Object):0 -> a
+com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter_Factory -> c.i.a.c.b.c.d:
     javax.inject.Provider mErrorHandlerProvider -> c
     javax.inject.Provider rootViewProvider -> b
     javax.inject.Provider modelProvider -> a
-    1:1:com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter get():0:0 -> get
+    1:1:com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter get():0:0 -> get
     1:1:java.lang.Object get():0 -> get
-    2:2:com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> get
-    2:2:com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter get():0 -> get
+    2:2:com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> get
+    2:2:com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter get():0 -> get
     2:2:java.lang.Object get():0 -> get
-com.thb.automatic.modue.aboutus.view.AboutUsActivity -> com.thb.automatic.modue.aboutus.view.AboutUsActivity:
+    3:3:void com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter_MembersInjector.injectMErrorHandler(com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter,me.jessyan.rxerrorhandler.core.RxErrorHandler):0:0 -> get
+    3:3:com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter provideInstance(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0 -> get
+    3:3:com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter get():0 -> get
+    3:3:java.lang.Object get():0 -> get
+com.thb.automatic.modue.loadstock.view.LoadStockActivity -> com.thb.automatic.modue.loadstock.view.LoadStockActivity:
     void hideLoading() -> a
     1:1:java.lang.String com.thb.automatic.app.utils.Utils.getString(int):0:0 -> a
     1:1:void initData(android.os.Bundle):0 -> a
-    2:2:android.content.Context com.thb.automatic.app.Common.getContext():0:0 -> a
+    2:2:android.content.res.Resources com.jess.arms.utils.ArmsUtils.getResources(android.content.Context):0:0 -> a
     2:2:java.lang.String com.thb.automatic.app.utils.Utils.getString(int):0 -> a
     2:2:void initData(android.os.Bundle):0 -> a
-    3:3:android.content.res.Resources com.jess.arms.utils.ArmsUtils.getResources(android.content.Context):0:0 -> a
-    3:3:java.lang.String com.thb.automatic.app.utils.Utils.getString(int):0 -> a
+    3:3:java.lang.String com.thb.automatic.app.utils.Utils.getString(int):0:0 -> a
     3:3:void initData(android.os.Bundle):0 -> a
-    4:4:java.lang.String com.thb.automatic.app.utils.Utils.getString(int):0:0 -> a
-    4:4:void initData(android.os.Bundle):0 -> a
-    5:5:void initData(android.os.Bundle):0:0 -> a
-    6:6:java.lang.String com.thb.automatic.app.utils.Utils.getAppVersion(android.content.Context):0:0 -> a
-    6:6:void initData(android.os.Bundle):0 -> a
-    7:7:void initData(android.os.Bundle):0:0 -> a
-    8:8:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.initialize(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0:0 -> a
-    8:8:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    8:8:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder,com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$1):0 -> a
-    8:8:com.thb.automatic.modue.aboutus.AboutUsComponent com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.build():0 -> a
+    4:4:void initData(android.os.Bundle):0:0 -> a
+    5:5:java.lang.String com.thb.automatic.app.utils.Utils.getAppVersion(android.content.Context):0:0 -> a
+    5:5:void initData(android.os.Bundle):0 -> a
+    6:6:void initData(android.os.Bundle):0:0 -> a
+    7:7:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.initialize(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0:0 -> a
+    7:7:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    7:7:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder,com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$1):0 -> a
+    7:7:com.thb.automatic.modue.loadstock.LoadStockComponent com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.build():0 -> a
+    7:7:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    8:8:com.thb.automatic.modue.loadstock.model.LoadStockModel_Factory com.thb.automatic.modue.loadstock.model.LoadStockModel_Factory.create(javax.inject.Provider,javax.inject.Provider):0:0 -> a
+    8:8:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.initialize(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    8:8:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    8:8:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder,com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$1):0 -> a
+    8:8:com.thb.automatic.modue.loadstock.LoadStockComponent com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.build():0 -> a
     8:8:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    9:9:com.thb.automatic.modue.aboutus.model.AboutUsModel_Factory com.thb.automatic.modue.aboutus.model.AboutUsModel_Factory.create(javax.inject.Provider,javax.inject.Provider):0:0 -> a
-    9:9:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.initialize(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    9:9:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    9:9:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder,com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$1):0 -> a
-    9:9:com.thb.automatic.modue.aboutus.AboutUsComponent com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.build():0 -> a
+    9:9:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.initialize(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0:0 -> a
+    9:9:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    9:9:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder,com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$1):0 -> a
+    9:9:com.thb.automatic.modue.loadstock.LoadStockComponent com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.build():0 -> a
     9:9:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    10:10:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.initialize(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0:0 -> a
-    10:10:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    10:10:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder,com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$1):0 -> a
-    10:10:com.thb.automatic.modue.aboutus.AboutUsComponent com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.build():0 -> a
+    10:10:com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter_Factory com.thb.automatic.modue.loadstock.presenter.LoadStockPresenter_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
+    10:10:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.initialize(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    10:10:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    10:10:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder,com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$1):0 -> a
+    10:10:com.thb.automatic.modue.loadstock.LoadStockComponent com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.build():0 -> a
     10:10:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    11:11:com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter_Factory com.thb.automatic.modue.aboutus.presenter.AboutUsPresenter_Factory.create(javax.inject.Provider,javax.inject.Provider,javax.inject.Provider):0:0 -> a
-    11:11:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.initialize(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    11:11:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    11:11:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder,com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$1):0 -> a
-    11:11:com.thb.automatic.modue.aboutus.AboutUsComponent com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.build():0 -> a
+    11:11:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.initialize(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0:0 -> a
+    11:11:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder):0 -> a
+    11:11:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.<init>(com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder,com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$1):0 -> a
+    11:11:com.thb.automatic.modue.loadstock.LoadStockComponent com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.build():0 -> a
     11:11:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    12:12:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.initialize(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0:0 -> a
-    12:12:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder):0 -> a
-    12:12:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.<init>(com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder,com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$1):0 -> a
-    12:12:com.thb.automatic.modue.aboutus.AboutUsComponent com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.build():0 -> a
+    12:12:com.thb.automatic.modue.loadstock.view.LoadStockActivity com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.injectLoadStockActivity(com.thb.automatic.modue.loadstock.view.LoadStockActivity):0:0 -> a
+    12:12:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.inject(com.thb.automatic.modue.loadstock.view.LoadStockActivity):0 -> a
     12:12:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    13:13:com.thb.automatic.modue.aboutus.view.AboutUsActivity com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.injectAboutUsActivity(com.thb.automatic.modue.aboutus.view.AboutUsActivity):0:0 -> a
-    13:13:void com.thb.automatic.modue.aboutus.DaggerAboutUsComponent.inject(com.thb.automatic.modue.aboutus.view.AboutUsActivity):0 -> a
+    13:13:void com.jess.arms.base.BaseActivity_MembersInjector.injectMPresenter(com.jess.arms.base.BaseActivity,com.jess.arms.mvp.IPresenter):0:0 -> a
+    13:13:com.thb.automatic.modue.loadstock.view.LoadStockActivity com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.injectLoadStockActivity(com.thb.automatic.modue.loadstock.view.LoadStockActivity):0 -> a
+    13:13:void com.thb.automatic.modue.loadstock.DaggerLoadStockComponent.inject(com.thb.automatic.modue.loadstock.view.LoadStockActivity):0 -> a
     13:13:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    14:14:com.thb.automatic.modue.aboutus.AboutUsComponent com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.build():0:0 -> a
+    14:14:com.thb.automatic.modue.loadstock.LoadStockComponent com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.build():0:0 -> a
     14:14:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
     15:15:java.lang.Object dagger.internal.Preconditions.checkNotNull(java.lang.Object):0:0 -> a
-    15:15:com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
-    15:15:com.thb.automatic.modue.aboutus.AboutUsComponent$Builder com.thb.automatic.modue.aboutus.DaggerAboutUsComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    15:15:com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    15:15:com.thb.automatic.modue.loadstock.LoadStockComponent$Builder com.thb.automatic.modue.loadstock.DaggerLoadStockComponent$Builder.appComponent(com.jess.arms.di.component.AppComponent):0 -> a
     15:15:void setupActivityComponent(com.jess.arms.di.component.AppComponent):0 -> a
+    void updateView(java.lang.String) -> a
     int initView(android.os.Bundle) -> b
     void showLoading() -> b
-com.thb.automatic.modue.aboutus.view.AboutUsActivity_ViewBinding -> com.thb.automatic.modue.aboutus.view.AboutUsActivity_ViewBinding:
-    com.thb.automatic.modue.aboutus.view.AboutUsActivity target -> a
+com.thb.automatic.modue.loadstock.view.LoadStockActivity_ViewBinding -> com.thb.automatic.modue.loadstock.view.LoadStockActivity_ViewBinding:
+    com.thb.automatic.modue.loadstock.view.LoadStockActivity target -> a
 com.thb.automatic.service.HomeService -> c.i.a.d.a:
+    io.reactivex.Observable getSHAll(java.util.HashMap) -> a
     io.reactivex.Observable getSina(java.lang.String) -> a
+    io.reactivex.Observable getSZAll(java.util.HashMap) -> b
 com.thb.automatic.service.arouter.ArouterJsonService -> c.i.a.d.a.a:
 com.trello.rxlifecycle2.Functions$1 -> com.trello.rxlifecycle2.Functions$1:
     1:1:java.lang.RuntimeException io.reactivex.exceptions.Exceptions.propagate(java.lang.Throwable):0:0 -> apply

@@ -33,8 +33,6 @@ import static com.thb.automatic.app.service.Constant.shenzhen_file;
 public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.View> {
 
     @Inject
-    List<String> tempData;
-    @Inject
     Application mApplication;
     @Inject
     RxErrorHandler mErrorHandler;

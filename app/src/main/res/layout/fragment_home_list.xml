@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <CheckBox
+            android:id="@+id/check_doji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:checked="true"
+            android:text="@string/home_list_doji"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/list_percent_edit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/list_percent_edit" />
+
+        <TextView
+            android:id="@+id/list_doji_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_list_doji_desc"
+            app:layout_constraintBottom_toBottomOf="@+id/list_percent_edit"
+            app:layout_constraintStart_toEndOf="@+id/check_doji"
+            app:layout_constraintTop_toTopOf="@+id/list_percent_edit" />
+
+        <EditText
+            android:id="@+id/list_percent_edit"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="@string/home_list_percent_hint"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/list_doji_desc"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_map_percent_t"
+            app:layout_constraintBottom_toBottomOf="@+id/list_percent_edit"
+            app:layout_constraintStart_toEndOf="@+id/list_percent_edit"
+            app:layout_constraintTop_toTopOf="@+id/list_percent_edit" />
+
+        <TextView
+            android:id="@+id/list_query_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@color/light_bLue_50"
+            android:paddingStart="3dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="10dp"
+            android:text="@string/home_map_begin_query"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/list_percent_edit" />
+
+        <TextView
+            android:id="@+id/list_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/info_window_offline"
+            android:text="@string/map_help_txt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/list_query_btn" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_top"
+        android:layout_marginTop="5dp"
+        android:background="@color/white" />
 </RelativeLayout>

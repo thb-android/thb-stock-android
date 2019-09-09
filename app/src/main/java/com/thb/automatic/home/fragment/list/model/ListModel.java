@@ -15,17 +15,15 @@
  */
 package com.thb.automatic.home.fragment.list.model;
 
-import com.thb.automatic.app.service.Result;
-import com.thb.automatic.home.fragment.list.contract.ListContract;
-import com.thb.automatic.service.entity.DeviceInfo;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.integration.IRepositoryManager;
 import com.jess.arms.mvp.BaseModel;
+import com.thb.automatic.home.fragment.list.contract.ListContract;
+import com.thb.automatic.service.HomeService;
 import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 
 import javax.inject.Inject;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * ================================================
@@ -46,11 +44,9 @@ public class ListModel extends BaseModel implements ListContract.Model {
     }
 
     @Override
-    public Observable<Result<List<DeviceInfo>>> getDevices(String userId) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put("method", "www.iot-icloud.cn.user.device.list");
-        params.put("target", userId);
-
-        return null;
+    public Observable<ResponseBody> getSinal(String url) {
+        return mRepositoryManager
+                .obtainRetrofitService(HomeService.class)
+                .getSina(url);
     }
 }
