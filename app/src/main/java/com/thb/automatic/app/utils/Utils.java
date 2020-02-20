@@ -5,11 +5,17 @@ import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
 import com.jess.arms.utils.ArmsUtils;
 import com.thb.automatic.app.Common;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,5 +94,17 @@ public final class Utils {
 
     public static String getDirectory() {
         return Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "a_thb";
+    }
+
+    public static String getDateDirectory() {
+        return getDirectory() + File.separator + "date";
+    }
+
+    public static String getFileByDate(String date) {
+        return getDateDirectory() + File.separator + date + ".txt";
+    }
+
+    public static String getFileByName(String name) {
+        return getDateDirectory() + File.separator + name;
     }
 }

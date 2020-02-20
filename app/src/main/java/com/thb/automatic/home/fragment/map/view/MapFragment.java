@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import butterknife.BindView;
+
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.BindView;
+
 public class MapFragment extends BaseFragment<MapPresenter> implements MapContract.View {
 
     private View mContentView;
@@ -35,6 +37,10 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     CheckBox mCheckBox;
     @BindView(R.id.percent_edit)
     EditText mPercentEdit;
+    @BindView(R.id.date_30)
+    CheckBox mDate30;
+    @BindView(R.id.date_30_percent_edit)
+    EditText mDatePercentEdit;
     @BindView(R.id.map_result)
     TextView mHelp;
     @BindView(R.id.map_query_btn)
@@ -81,7 +87,7 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
             public void onClick(View v) {
                 mData.clear();
                 mAdapter.notifyDataSetChanged();
-                mPresenter.loadData(mPercentEdit.getText().toString(), mCheckBox.isChecked());
+                mPresenter.loadData(mPercentEdit.getText().toString(), mCheckBox.isChecked(), mDatePercentEdit.getText().toString(), mDate30.isChecked());
                 mPercentEdit.setText(null);
                 Utils.hideSoftKeyboard(v);
             }
@@ -110,5 +116,18 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     @Override
     public void updateView(String error) {
         mHelp.setText(error);
+    }
+
+    @Override
+    public void resetListView(List<StockInfo> infos) {
+        mData.clear();
+        mData.addAll(infos);
+        Collections.sort(mData, (o1, o2) -> Double.compare(o1.changepercent, o2.changepercent));
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public List<StockInfo> getStockInfos() {
+        return mData;
     }
 }

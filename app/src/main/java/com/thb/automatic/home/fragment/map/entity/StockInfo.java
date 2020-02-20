@@ -61,6 +61,9 @@ public class StockInfo {
     //卖单情况
     public BuyOrSellInfo[] mSell;
 
+    public int extraNum;
+    public String extraInfo;
+
     static DecimalFormat df = new DecimalFormat("#.00");
 
     /**

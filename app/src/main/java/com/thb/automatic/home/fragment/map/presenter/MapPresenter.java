@@ -2,21 +2,21 @@ package com.thb.automatic.home.fragment.map.presenter;
 
 import android.app.Application;
 import android.text.TextUtils;
+import android.util.Log;
+
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.mvp.BasePresenter;
 import com.jess.arms.utils.RxLifecycleUtils;
 import com.thb.automatic.app.IOTErrorHandleSubscriber;
+import com.thb.automatic.app.utils.UiThreadHandler;
 import com.thb.automatic.app.utils.Utils;
 import com.thb.automatic.home.fragment.map.contract.MapContract;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
+import com.thb.automatic.home.fragment.map.model.DateStockInfo;
+import com.thb.automatic.home.fragment.map.presenter.util.FileWriterUtil;
+import com.thb.automatic.home.fragment.map.presenter.util.MapUtil;
 import com.thb.automatic.service.CommonService;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import me.jessyan.rxerrorhandler.core.RxErrorHandler;
-import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
-import okhttp3.ResponseBody;
 
-import javax.inject.Inject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -25,6 +25,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.inject.Inject;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
+import okhttp3.ResponseBody;
 
 import static com.thb.automatic.app.service.Constant.shanghai_file;
 import static com.thb.automatic.app.service.Constant.shenzhen_file;
@@ -39,6 +47,8 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
 
     private double mPercent;
     private boolean mIsNoTopLine;
+    private double mDatePercent;
+    private boolean mDateCheck;
 
     private int mTotal;
     private int mEffective;
@@ -48,7 +58,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         super(model, view);
     }
 
-    public void loadData(String percent, boolean isNoTopLine) {
+    public void loadData(String percent, boolean isNoTopLine, String datePercent, boolean isCheckDate) {
         mTotal = 0;
         mEffective = 0;
 
@@ -59,12 +69,27 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
             mPercent = 1.0;
         }
         mIsNoTopLine = isNoTopLine;
-        new Thread(() -> {
+
+        if (!TextUtils.isEmpty(datePercent)) {
+            mDatePercent = Double.valueOf(datePercent);
+        } else {
+            mDatePercent = 5.0;
+        }
+        mDateCheck = isCheckDate;
+
+        Thread thread = new Thread(() -> {
             final String path = Utils.getDirectory() + File.separator;
             loadSh(path);
             loadSz(path);
-        }).start();
+        });
+        thread.start();
 
+        UiThreadHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                updateExtraInfo();
+            }
+        }, 15 * 1000);
     }
 
     private void loadSh(String path) {
@@ -150,15 +175,31 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
                         final List<StockInfo> temp = new ArrayList<>();
                         for (StockInfo info : infos) {
                             mTotal++;
+                            save2Sd(info);
                             if (shouldAdd(info)) {
                                 mEffective++;
+                                if (mDateCheck) {
+                                    info.extraInfo = "请等15秒";
+                                } else {
+                                    info.extraInfo = "未选涨幅";
+                                }
                                 temp.add(info);
                             }
                         }
                         mRootView.updateView(temp);
                         mRootView.updateView("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
+                        log("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
                     }
                 });
+    }
+
+    private void save2Sd(StockInfo info) {
+        if (info.changepercent >= 5.0) {
+            DateStockInfo dateStockInfo = new DateStockInfo();
+            dateStockInfo.symbol = info.symbol;
+            dateStockInfo.changepercent = info.changepercent;
+            FileWriterUtil.getInstance(info.mDate).write2Sd(dateStockInfo);
+        }
     }
 
     private boolean shouldAdd(StockInfo info) {
@@ -188,6 +229,38 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         }
 
         return true;
+    }
+
+    private void updateExtraInfo() {
+        List<StockInfo> infos = mRootView.getStockInfos();
+        if (infos == null || !mDateCheck) {
+            return;
+        }
+
+        List<List<DateStockInfo>> temp = MapUtil.getInstance(infos).getStockInfos();
+
+        for (StockInfo info : infos) {
+            for (List<DateStockInfo> tempList : temp) {
+                for (DateStockInfo tempInfo : tempList) {
+                    if (tempInfo.symbol.equals(info.symbol)) {
+                        info.extraNum++;
+                    }
+                }
+            }
+            info.extraInfo = info.extraNum + "次";
+        }
+
+        UiThreadHandler.getUiHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                mRootView.updateView(infos);
+                log("--------------------从缓存更新完成-------------------");
+            }
+        });
+    }
+
+    private void log(String log) {
+        Log.e("tanghuaibao", log);
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.thb.automatic.R;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
@@ -39,8 +40,10 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
     @Override
     public void onBindViewHolder(@NonNull CustomHolder holder, int i) {
         final StockInfo item = mData.get(i);
-        holder.text.setText(String.format("%s   %s", item.name, item.symbol));
-        holder.price.setText(String.format("%s   %s%s", df.format(item.trade), df.format(item.changepercent), "%"));
+        holder.text.setText(String.format("%s %s", item.name, item.symbol));
+        holder.extra.setText(item.extraInfo);
+        holder.price.setText(String.format("%s", df.format(item.trade)));
+        holder.percent.setText(String.format("%s%s", df.format(item.changepercent), "%"));
         holder.itemView.setOnClickListener(v -> {
             ARouter.getInstance()
                     .build(K_LINE_ACTIVITY)
@@ -57,12 +60,16 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.CustomHolder> 
     class CustomHolder extends RecyclerView.ViewHolder {
 
         private TextView text;
+        private TextView extra;
         private TextView price;
+        private TextView percent;
 
         CustomHolder(View itemView) {
             super(itemView);
             text = itemView.findViewById(R.id.map_item_txt);
-            price = itemView.findViewById(R.id.stock_price_percent);
+            extra = itemView.findViewById(R.id.map_item_extra);
+            price = itemView.findViewById(R.id.stock_price);
+            percent = itemView.findViewById(R.id.stock_percent);
         }
 
     }

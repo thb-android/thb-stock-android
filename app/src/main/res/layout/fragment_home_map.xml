@@ -5,54 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:id="@+id/layout_top"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/check_no_top_line"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/check_no_top_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/home_map_no_top_line" />
+
+            <EditText
+                android:id="@+id/percent_edit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/home_map_percent_hint"
+                android:inputType="number"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_map_percent_t" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="@string/home_map_no_top_line"
-            app:layout_constraintBottom_toBottomOf="@+id/percent_edit"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/percent_edit" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/percent_edit"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:hint="@string/home_map_percent_hint"
-            android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/check_no_top_line"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="Autofill" />
+            <CheckBox
+                android:id="@+id/date_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/home_map_date_30" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_map_percent_t"
-            app:layout_constraintBottom_toBottomOf="@+id/percent_edit"
-            app:layout_constraintStart_toEndOf="@+id/percent_edit"
-            app:layout_constraintTop_toTopOf="@+id/percent_edit" />
+            <EditText
+                android:id="@+id/date_30_percent_edit"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:inputType="number"
+                android:text="5"
+                tools:ignore="Autofill" />
 
-        <TextView
-            android:id="@+id/map_query_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:background="@color/light_bLue_50"
-            android:paddingStart="3dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="3dp"
-            android:paddingBottom="10dp"
-            android:text="@string/home_map_begin_query"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/percent_edit" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_map_percent_t" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/map_result"
@@ -64,7 +78,21 @@
             android:text="@string/map_help_txt"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/map_query_btn" />
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/map_query_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:background="@color/light_bLue_50"
+        android:paddingStart="3dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="3dp"
+        android:paddingBottom="10dp"
+        android:text="@string/home_map_begin_query" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/map_recycler"

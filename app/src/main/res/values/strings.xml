@@ -12,8 +12,9 @@
     <string name="home_map_no_top_line">无上阴线</string>
     <string name="home_map_percent_hint">1</string>
     <string name="home_map_percent_t">%</string>
+    <string name="home_map_date_30">30日涨幅</string>
     <string name="home_map_begin_query">开始查询</string>
-    
+
     <string name="home_list_percent_hint">3</string>
     <string name="home_list_doji">十字星</string>
     <string name="home_list_doji_desc">波动幅度</string>
