@@ -23,8 +23,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -53,6 +56,15 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
     private int mTotal;
     private int mEffective;
 
+    private Set<String> isRepeat = new HashSet<>();
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            updateExtraInfo();
+        }
+    };
+
     @Inject
     public MapPresenter(MapContract.Model model, MapContract.View view) {
         super(model, view);
@@ -77,19 +89,14 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         }
         mDateCheck = isCheckDate;
 
+        isRepeat.clear();
+
         Thread thread = new Thread(() -> {
             final String path = Utils.getDirectory() + File.separator;
             loadSh(path);
             loadSz(path);
         });
         thread.start();
-
-        UiThreadHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                updateExtraInfo();
-            }
-        }, 15 * 1000);
     }
 
     private void loadSh(String path) {
@@ -178,17 +185,23 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
                             save2Sd(info);
                             if (shouldAdd(info)) {
                                 mEffective++;
+                                isRepeat.add(info.symbol);
                                 if (mDateCheck) {
-                                    info.extraInfo = "请等15秒";
+                                    info.extraInfo = "请稍等";
                                 } else {
                                     info.extraInfo = "未选涨幅";
                                 }
                                 temp.add(info);
                             }
                         }
-                        mRootView.updateView(temp);
-                        mRootView.updateView("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
-                        log("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
+                        if (!temp.isEmpty()) {
+                            mRootView.updateView(temp);
+                            mRootView.updateView("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
+                            log("共" + mTotal + "条数据，其中涨幅大于" + mPercent + "%有效数据共" + mEffective + "条");
+
+                            UiThreadHandler.removeCallbacks(runnable);
+                            UiThreadHandler.postDelayed(runnable, 5 * 1000);
+                        }
                     }
                 });
     }
@@ -203,6 +216,11 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
     }
 
     private boolean shouldAdd(StockInfo info) {
+        if (isRepeat.contains(info.symbol)) {
+            // 已经添加过这个股票了
+            return false;
+        }
+
         if (info.open <= info.trade) {
             // 开盘价小于等于最新价格，不符合要求
             return false;
@@ -232,19 +250,30 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
     }
 
     private void updateExtraInfo() {
-        List<StockInfo> infos = mRootView.getStockInfos();
-        if (infos == null || !mDateCheck) {
+        if (!mDateCheck || mRootView.getStockInfos() == null) {
             return;
         }
 
-        List<List<DateStockInfo>> temp = MapUtil.getInstance(infos).getStockInfos();
+        final List<StockInfo> infos = new ArrayList<>(mRootView.getStockInfos());
 
         for (StockInfo info : infos) {
-            for (List<DateStockInfo> tempList : temp) {
-                for (DateStockInfo tempInfo : tempList) {
-                    if (tempInfo.symbol.equals(info.symbol)) {
-                        info.extraNum++;
-                    }
+            info.extraInfo = "处理中";
+        }
+
+        UiThreadHandler.getUiHandler().post(new Runnable() {
+            @Override
+            public void run() {
+                mRootView.resetListView(infos);
+            }
+        });
+
+        List<Map<String, Double>> temp = MapUtil.getInstance(infos).getStockInfos();
+
+        for (StockInfo info : infos) {
+            for (Map<String, Double> tempInfo : temp) {
+                Double changepercent = tempInfo.get(info.symbol);
+                if (null != changepercent && changepercent >= mDatePercent) {
+                    info.extraNum++;
                 }
             }
             info.extraInfo = info.extraNum + "次";
@@ -253,13 +282,13 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         UiThreadHandler.getUiHandler().post(new Runnable() {
             @Override
             public void run() {
-                mRootView.updateView(infos);
-                log("--------------------从缓存更新完成-------------------");
+                mRootView.resetListView(infos);
+                log("--------------------从缓存更新完成-------------------" + infos.size());
             }
         });
     }
 
-    private void log(String log) {
+    public void log(String log) {
         Log.e("tanghuaibao", log);
     }
 

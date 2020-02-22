@@ -108,7 +108,6 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     public void updateView(List<StockInfo> infos) {
         mRecyclerView.setVisibility(View.VISIBLE);
         mData.addAll(infos);
-
         Collections.sort(mData, (o1, o2) -> Double.compare(o1.changepercent, o2.changepercent));
         mAdapter.notifyDataSetChanged();
     }
@@ -120,6 +119,7 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
 
     @Override
     public void resetListView(List<StockInfo> infos) {
+        mRecyclerView.setVisibility(View.VISIBLE);
         mData.clear();
         mData.addAll(infos);
         Collections.sort(mData, (o1, o2) -> Double.compare(o1.changepercent, o2.changepercent));

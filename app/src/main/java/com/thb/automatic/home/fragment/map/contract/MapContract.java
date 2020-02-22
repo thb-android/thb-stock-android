@@ -3,18 +3,22 @@ package com.thb.automatic.home.fragment.map.contract;
 import com.jess.arms.mvp.IModel;
 import com.jess.arms.mvp.IView;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
-import io.reactivex.Observable;
-import okhttp3.ResponseBody;
 
 import java.util.List;
+
+import io.reactivex.Observable;
+import okhttp3.ResponseBody;
 
 public interface MapContract {
 
     //对于经常使用的关于UI的方法可以定义到IView中,如显示隐藏进度条,和显示文字消息
     interface View extends IView {
         void updateView(List<StockInfo> infos);
+
         void updateView(String error);
+
         void resetListView(List<StockInfo> infos);
+
         List<StockInfo> getStockInfos();
     }
 

@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p><p>
@@ -23,21 +25,22 @@ public class MapUtil {
 
     private static MapUtil instance;
 
-    private List<List<DateStockInfo>> dateStockInfos = new ArrayList<>();
+    private List<Map<String, Double>> dateStockInfos = new ArrayList<>();
 
     private MapUtil(List<StockInfo> infos) {
         List<File> files = getFiles();
 
+        // 30代表30天，只取30天数据
         final int size = files.size() > 30 ? 30 : files.size();
         for (int i = 0; i < size; i++) {
             List<DateStockInfo> fileStockInfo = FileReaderUtil.getInstance(files.get(i)).getAllStockInfo();
             FileReaderUtil.getInstance(files.get(i)).clear();
-            List<DateStockInfo> temp = new ArrayList<>();
+            HashMap<String, Double> temp = new HashMap<>();
             if (null != infos && null != fileStockInfo) {
                 for (StockInfo info : infos) {
                     for (DateStockInfo dateStockInfo : fileStockInfo) {
                         if (dateStockInfo.symbol.equals(info.symbol)) {
-                            temp.add(dateStockInfo);
+                            temp.put(dateStockInfo.symbol, dateStockInfo.changepercent);
                         }
                     }
                 }
@@ -53,7 +56,7 @@ public class MapUtil {
         return instance;
     }
 
-    public List<List<DateStockInfo>> getStockInfos() {
+    public List<Map<String, Double>> getStockInfos() {
         return dateStockInfos;
     }
 
