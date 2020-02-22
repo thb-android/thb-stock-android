@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:inputType="number"
-                android:text="5"
+                android:text="9"
                 tools:ignore="Autofill" />
 
             <TextView

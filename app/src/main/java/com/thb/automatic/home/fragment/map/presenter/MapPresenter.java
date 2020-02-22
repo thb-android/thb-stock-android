@@ -84,7 +84,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         if (!TextUtils.isEmpty(datePercent)) {
             mDatePercent = Double.valueOf(datePercent);
         } else {
-            mDatePercent = 5.0;
+            mDatePercent = 9.0;
         }
         mDateCheck = isCheckDate;
 
