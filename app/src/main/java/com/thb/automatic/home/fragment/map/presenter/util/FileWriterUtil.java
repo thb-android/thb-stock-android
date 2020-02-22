@@ -2,7 +2,7 @@ package com.thb.automatic.home.fragment.map.presenter.util;
 
 import com.google.gson.Gson;
 import com.thb.automatic.app.utils.Utils;
-import com.thb.automatic.home.fragment.map.model.DateStockInfo;
+import com.thb.automatic.home.fragment.map.entity.DateStockInfo;
 
 import java.io.File;
 import java.io.FileWriter;

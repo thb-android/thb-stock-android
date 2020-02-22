@@ -2,7 +2,6 @@ package com.thb.automatic.home.fragment.map.presenter;
 
 import android.app.Application;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.mvp.BasePresenter;
@@ -12,7 +11,7 @@ import com.thb.automatic.app.utils.UiThreadHandler;
 import com.thb.automatic.app.utils.Utils;
 import com.thb.automatic.home.fragment.map.contract.MapContract;
 import com.thb.automatic.home.fragment.map.entity.StockInfo;
-import com.thb.automatic.home.fragment.map.model.DateStockInfo;
+import com.thb.automatic.home.fragment.map.entity.DateStockInfo;
 import com.thb.automatic.home.fragment.map.presenter.util.FileWriterUtil;
 import com.thb.automatic.home.fragment.map.presenter.util.MapUtil;
 import com.thb.automatic.service.CommonService;

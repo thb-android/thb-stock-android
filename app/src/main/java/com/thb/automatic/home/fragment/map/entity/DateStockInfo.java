@@ -1,4 +1,4 @@
-package com.thb.automatic.home.fragment.map.model;
+package com.thb.automatic.home.fragment.map.entity;
 
 /**
  * <p><p>
