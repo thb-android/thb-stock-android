@@ -289,7 +289,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
     }
 
     public void log(String log) {
-        Log.e("tanghuaibao", log);
+//        Log.e("tanghuaibao", log);
     }
 
 }
