@@ -68,6 +68,14 @@
                 android:text="@string/home_map_percent_t" />
         </LinearLayout>
 
+        <CheckBox
+            android:id="@+id/check_low_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/home_map_check_low_price" />
+
         <TextView
             android:id="@+id/map_result"
             android:layout_width="wrap_content"

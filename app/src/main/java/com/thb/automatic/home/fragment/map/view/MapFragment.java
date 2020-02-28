@@ -41,6 +41,8 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
     CheckBox mDate30;
     @BindView(R.id.date_30_percent_edit)
     EditText mDatePercentEdit;
+    @BindView(R.id.check_low_price)
+    CheckBox mLowPrice;
     @BindView(R.id.map_result)
     TextView mHelp;
     @BindView(R.id.map_query_btn)
@@ -87,7 +89,7 @@ public class MapFragment extends BaseFragment<MapPresenter> implements MapContra
             public void onClick(View v) {
                 mData.clear();
                 mAdapter.notifyDataSetChanged();
-                mPresenter.loadData(mPercentEdit.getText().toString(), mCheckBox.isChecked(), mDatePercentEdit.getText().toString(), mDate30.isChecked());
+                mPresenter.loadData(mPercentEdit.getText().toString(), mCheckBox.isChecked(), mDatePercentEdit.getText().toString(), mDate30.isChecked(), mLowPrice.isChecked());
                 mPercentEdit.setText(null);
                 Utils.hideSoftKeyboard(v);
             }

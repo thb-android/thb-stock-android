@@ -51,6 +51,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
     private boolean mIsNoTopLine;
     private double mDatePercent;
     private boolean mDateCheck;
+    private boolean mCheckLowPrice;
 
     private int mTotal;
     private int mEffective;
@@ -69,7 +70,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
         super(model, view);
     }
 
-    public void loadData(String percent, boolean isNoTopLine, String datePercent, boolean isCheckDate) {
+    public void loadData(String percent, boolean isNoTopLine, String datePercent, boolean isCheckDate, boolean isCheckLowPrice) {
         mTotal = 0;
         mEffective = 0;
 
@@ -87,6 +88,7 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
             mDatePercent = 9.0;
         }
         mDateCheck = isCheckDate;
+        mCheckLowPrice = isCheckLowPrice;
 
         isRepeat.clear();
 
@@ -225,9 +227,16 @@ public class MapPresenter extends BasePresenter<MapContract.Model, MapContract.V
             return false;
         }
 
-        if (info.low <= info.settlement) {
-            // 最低价小于等于昨日收盘价格，不符合要求
-            return false;
+        if (mCheckLowPrice) {
+            if (info.low <= info.settlement) {
+                // 最低价小于等于昨日收盘价格，不符合要求
+                return false;
+            }
+        } else {
+            if (info.trade <= info.settlement) {
+                // 最新价小于等于昨日收盘价格，不符合要求
+                return false;
+            }
         }
 
         if (info.changepercent < mPercent) {
